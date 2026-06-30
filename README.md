@@ -1,24 +1,21 @@
 <!-- ╔══════════════════════════════════════════════════════════════╗ -->
 <!-- ║  grpcer · GitHub Profile README                                ║ -->
-<!-- ║  仓库名必须是 grpcer/grpcer（与用户名同名），设为 Public        ║ -->
+<!-- ║  全部卡片透明背景 + prefers-color-scheme 双主题自适应          ║ -->
+<!-- ║  深色模式 = 霓虹暗黑科技感 / 浅色模式 = 干净清爽，互不撞色      ║ -->
 <!-- ╚══════════════════════════════════════════════════════════════╝ -->
 
 <div align="center">
 
-<!-- ===== 打字动画 Banner ===== -->
+<!-- ===== 打字动画 Banner（青绿色在明暗底都读得清）===== -->
 <a href="https://github.com/grpcer">
-  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=26&pause=1000&color=00F5D4&center=true&vCenter=true&width=820&height=64&lines=Hi%2C+I'm+grpcer+%F0%9F%90%BE;Indie+full-stack+%26+AI+app+builder;iOS+%C2%B7+Android+%C2%B7+Web+%C2%B7+Go+Backend;Always+shipping+%E2%80%94+100%25+commits" alt="typing banner" />
+  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=26&pause=1000&color=14B8A6&center=true&vCenter=true&width=820&height=64&lines=Hi%2C+I'm+grpcer+%F0%9F%90%BE;Indie+full-stack+%26+AI+app+builder;iOS+%C2%B7+Android+%C2%B7+Web+%C2%B7+Go+Backend;Always+shipping+%E2%80%94+100%25+commits" alt="typing banner" />
 </a>
 
-<!-- ===== 状态徽章 ===== -->
+<!-- ===== 状态徽章（默认灰标签，互不撞色）===== -->
 <p>
-  <img src="https://komarev.com/ghpvc/?username=grpcer&label=Profile+views&color=00F5D4&style=flat-square&labelColor=0D1117" alt="views" />
-  <a href="https://github.com/grpcer?tab=followers">
-    <img src="https://img.shields.io/github/followers/grpcer?label=Followers&style=flat-square&color=00F5D4&labelColor=0D1117" alt="followers" />
-  </a>
-  <a href="https://github.com/grpcer/tokpet">
-    <img src="https://img.shields.io/github/stars/grpcer/tokpet?label=tokpet+stars&style=flat-square&color=FFD000&labelColor=0D1117" alt="tokpet stars" />
-  </a>
+  <img src="https://komarev.com/ghpvc/?username=grpcer&label=Profile+views&color=14B8A6&style=flat-square" alt="views" />
+  <a href="https://github.com/grpcer?tab=followers"><img src="https://img.shields.io/github/followers/grpcer?style=flat-square&color=14B8A6&label=Followers" alt="followers" /></a>
+  <a href="https://github.com/grpcer/tokpet"><img src="https://img.shields.io/github/stars/grpcer/tokpet?style=flat-square&color=14B8A6&label=tokpet+stars" alt="tokpet stars" /></a>
 </p>
 
 </div>
@@ -46,25 +43,17 @@ const grpcer = {
 
 <div align="center">
 
-**Mobile** &nbsp;·&nbsp; iOS + Android 双端原生
-
-<img src="https://skillicons.dev/icons?i=swift,kotlin&theme=dark" height="44" alt="mobile" />
-<img src="https://img.shields.io/badge/SwiftUI-0D1117?style=for-the-badge&logo=swift&logoColor=00F5D4" alt="SwiftUI" />
-<img src="https://img.shields.io/badge/Jetpack_Compose-0D1117?style=for-the-badge&logo=jetpackcompose&logoColor=00F5D4" alt="Compose" />
-<img src="https://img.shields.io/badge/GRDB-0D1117?style=for-the-badge&logo=sqlite&logoColor=00F5D4" alt="GRDB" />
-<img src="https://img.shields.io/badge/Koin-0D1117?style=for-the-badge&logo=kotlin&logoColor=00F5D4" alt="Koin" />
-
-**Web** &nbsp;·&nbsp; Next.js 全家桶
-
-<img src="https://skillicons.dev/icons?i=ts,nextjs,react,tailwind&theme=dark" height="44" alt="web" />
-<img src="https://img.shields.io/badge/Zustand-0D1117?style=for-the-badge&logo=react&logoColor=00F5D4" alt="Zustand" />
-
-**Backend & Infra** &nbsp;·&nbsp; Go + 数据层
-
-<img src="https://skillicons.dev/icons?i=go,c,ruby,postgres,redis,docker,nginx&theme=dark" height="44" alt="backend" />
-<img src="https://img.shields.io/badge/Gin-0D1117?style=for-the-badge&logo=go&logoColor=00F5D4" alt="Gin" />
+<!-- 图标墙：深色给 dark 主题、浅色给 light 主题，各自融底 -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=swift,kotlin,ts,nextjs,react,tailwind,go,c,ruby,postgres,redis,docker&theme=dark&perline=12" />
+  <img src="https://skillicons.dev/icons?i=swift,kotlin,ts,nextjs,react,tailwind,go,c,ruby,postgres,redis,docker&theme=light&perline=12" alt="tech stack" height="48" />
+</picture>
 
 </div>
+
+> **Mobile** — iOS：SwiftUI · GRDB ｜ Android：Jetpack Compose · Koin
+> **Web** — Next.js · React · Zustand · Tailwind
+> **Backend & Infra** — Go（Gin）· PostgreSQL · Redis · Docker
 
 ---
 
@@ -72,16 +61,34 @@ const grpcer = {
 
 <div align="center">
 
-<img height="165" src="https://github-readme-stats.vercel.app/api?username=grpcer&show_icons=true&hide_border=true&include_all_commits=true&count_private=true&bg_color=0D1117&title_color=00F5D4&icon_color=00F5D4&text_color=C9D1D9&ring_color=00F5D4" alt="stats" />
-<img height="165" src="https://streak-stats.demolab.com?user=grpcer&hide_border=true&background=0D1117&stroke=30363D&ring=00F5D4&fire=00F5D4&currStreakLabel=00F5D4&sideLabels=C9D1D9&dates=8B949E&currStreakNum=C9D1D9&sideNums=C9D1D9" alt="streak" />
+<!-- Stats -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api?username=grpcer&show_icons=true&hide_border=true&include_all_commits=true&count_private=true&bg_color=00000000&title_color=2DD4BF&icon_color=2DD4BF&text_color=9BA1A6" />
+  <img height="165" src="https://github-readme-stats.vercel.app/api?username=grpcer&show_icons=true&hide_border=true&include_all_commits=true&count_private=true&bg_color=00000000&title_color=0D9488&icon_color=0D9488&text_color=4B5563" alt="stats" />
+</picture>
+<!-- Streak -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com?user=grpcer&hide_border=true&background=00000000&ring=2DD4BF&fire=2DD4BF&currStreakLabel=2DD4BF&sideLabels=9BA1A6&currStreakNum=C9D1D9&sideNums=C9D1D9&dates=8B949E&stroke=2DD4BF" />
+  <img height="165" src="https://streak-stats.demolab.com?user=grpcer&hide_border=true&background=00000000&ring=0D9488&fire=0D9488&currStreakLabel=0D9488&sideLabels=4B5563&currStreakNum=1F2937&sideNums=1F2937&dates=6B7280&stroke=0D9488" alt="streak" />
+</picture>
 
-<img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=grpcer&layout=compact&langs_count=8&hide_border=true&bg_color=0D1117&title_color=00F5D4&text_color=C9D1D9" alt="top langs" />
+<!-- Top languages -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=grpcer&layout=compact&langs_count=8&hide_border=true&bg_color=00000000&title_color=2DD4BF&text_color=9BA1A6" />
+  <img height="150" src="https://github-readme-stats.vercel.app/api/top-langs/?username=grpcer&layout=compact&langs_count=8&hide_border=true&bg_color=00000000&title_color=0D9488&text_color=4B5563" alt="top langs" />
+</picture>
 
-<!-- 全宽贡献曲线，最能体现"一直在干活" -->
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=grpcer&bg_color=0D1117&color=00F5D4&line=00F5D4&point=FFFFFF&area=true&area_color=00F5D4&hide_border=true&custom_title=Contribution+Graph+%C2%B7+%E8%B4%A1%E7%8C%AE%E6%9B%B2%E7%BA%BF" alt="activity graph" />
+<!-- 贡献曲线 -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-activity-graph.vercel.app/graph?username=grpcer&hide_border=true&bg_color=00000000&color=2DD4BF&line=2DD4BF&point=FFFFFF&area=true&area_color=2DD4BF&title_color=2DD4BF&text_color=9BA1A6" />
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=grpcer&hide_border=true&bg_color=00000000&color=0D9488&line=0D9488&point=0D9488&area=true&area_color=99F6E4&title_color=0D9488&text_color=4B5563" alt="activity graph" />
+</picture>
 
-<!-- 贪吃蛇吃格子动画（由 .github/workflows/snake.yml 生成到 output 分支） -->
-<img src="https://raw.githubusercontent.com/grpcer/grpcer/output/snake-dark.svg" alt="snake animation" />
+<!-- 贪吃蛇（深/浅各一张，由 snake.yml 生成）-->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/grpcer/grpcer/output/snake-dark.svg" />
+  <img src="https://raw.githubusercontent.com/grpcer/grpcer/output/snake-light.svg" alt="snake animation" />
+</picture>
 
 </div>
 
@@ -92,10 +99,16 @@ const grpcer = {
 <div align="center">
 
 <a href="https://github.com/grpcer/tokpet">
-  <img src="https://github-readme-stats.vercel.app/api/pin/?username=grpcer&repo=tokpet&hide_border=true&bg_color=0D1117&title_color=00F5D4&icon_color=00F5D4&text_color=C9D1D9" alt="tokpet" />
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/pin/?username=grpcer&repo=tokpet&hide_border=true&bg_color=00000000&title_color=2DD4BF&icon_color=2DD4BF&text_color=9BA1A6" />
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=grpcer&repo=tokpet&hide_border=true&bg_color=00000000&title_color=0D9488&icon_color=0D9488&text_color=4B5563" alt="tokpet" />
+  </picture>
 </a>
 <a href="https://github.com/grpcer/homebrew-tokpet">
-  <img src="https://github-readme-stats.vercel.app/api/pin/?username=grpcer&repo=homebrew-tokpet&hide_border=true&bg_color=0D1117&title_color=00F5D4&icon_color=00F5D4&text_color=C9D1D9" alt="homebrew-tokpet" />
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/pin/?username=grpcer&repo=homebrew-tokpet&hide_border=true&bg_color=00000000&title_color=2DD4BF&icon_color=2DD4BF&text_color=9BA1A6" />
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=grpcer&repo=homebrew-tokpet&hide_border=true&bg_color=00000000&title_color=0D9488&icon_color=0D9488&text_color=4B5563" alt="homebrew-tokpet" />
+  </picture>
 </a>
 
 </div>
@@ -109,16 +122,9 @@ const grpcer = {
 
 <div align="center">
 
-<!-- 把下面的链接换成你自己的；用不到的整行删掉即可 -->
-<a href="mailto:ifconfigure@gmail.com">
-  <img src="https://img.shields.io/badge/Email-0D1117?style=for-the-badge&logo=gmail&logoColor=00F5D4" alt="email" />
-</a>
-<a href="https://github.com/grpcer">
-  <img src="https://img.shields.io/badge/GitHub-0D1117?style=for-the-badge&logo=github&logoColor=00F5D4" alt="github" />
-</a>
+<a href="mailto:ifconfigure@gmail.com"><img src="https://img.shields.io/badge/Email-0D9488?style=for-the-badge&logo=gmail&logoColor=white" alt="email" /></a>
+<a href="https://github.com/grpcer"><img src="https://img.shields.io/badge/GitHub-0D9488?style=for-the-badge&logo=github&logoColor=white" alt="github" /></a>
 
 </div>
 
-<div align="center">
-  <sub>🐾 Built one commit at a time.</sub>
-</div>
+<div align="center"><sub>🐾 Built one commit at a time.</sub></div>
