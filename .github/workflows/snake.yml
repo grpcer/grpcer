@@ -22,9 +22,10 @@ jobs:
         uses: Platane/snk/svg-only@v3
         with:
           github_user_name: grpcer
-          # 暗色 + 霓虹青蛇身，和 README 配色统一
+          # 深色版给 dark 主题、浅色版给 light 主题，各自融底不撞色
           outputs: |
-            dist/snake-dark.svg?palette=github-dark&color_snake=00F5D4&color_dots=161B22,0E4429,006D32,26A641,39D353
+            dist/snake-dark.svg?palette=github-dark&color_snake=2DD4BF
+            dist/snake-light.svg?palette=github-light&color_snake=0D9488
 
       - name: push snake.svg to the output branch
         uses: crazy-max/ghaction-github-pages@v4.0.0
