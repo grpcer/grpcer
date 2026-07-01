@@ -2,7 +2,16 @@
 <!-- ║  grpcer · GitHub Profile README                                ║ -->
 <!-- ║  Transparent cards + prefers-color-scheme adaptive.            ║ -->
 <!-- ║  Every image is served by a verified-up service (no GRS).      ║ -->
+<!-- ║  3D contrib calendar is self-hosted via profile-3d.yml cron.   ║ -->
 <!-- ╚══════════════════════════════════════════════════════════════╝ -->
+
+```
+ __ _ _ __ _ __   ___ ___ _ __
+/ _` | '__| '_ \ / __/ _ \ '__|
+| (_| | |  | |_) | (_|  __/ |
+ \__, |_|  | .__/ \___\___|_|
+ |___/     |_|
+```
 
 <div align="center">
 
@@ -82,22 +91,21 @@ const grpcer = {
   <img src="https://github-readme-activity-graph.vercel.app/graph?username=grpcer&hide_border=true&bg_color=00000000&color=0D9488&line=0D9488&point=0D9488&area=true&area_color=99F6E4&title_color=0D9488&text_color=4B5563" alt="activity graph" />
 </picture>
 
+<!-- Trophies (github-profile-trophy — verified up, nord theme matches teal identity) -->
+<a href="https://github.com/ryo-ma/github-profile-trophy">
+  <img src="https://github-profile-trophy.vercel.app/?username=grpcer&theme=nord&no-frame=true&no-bg=true&margin-w=8&column=-1" alt="trophies" />
+</a>
+
 <!-- Snake (dark + light variants, raw.githubusercontent — verified up) -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/grpcer/grpcer/output/snake-dark.svg" />
   <img src="https://raw.githubusercontent.com/grpcer/grpcer/output/snake-light.svg" alt="snake animation" />
 </picture>
 
-</div>
+<!-- 3D contribution calendar (yoshi389111/github-profile-3d-contrib — self-hosted, daily cron via profile-3d.yml) -->
+<img width="850" src="./profile-3d-contrib/profile-night-green.svg" alt="3d contribution calendar" />
 
-<!--
-  NOTE: the overall-stats card and the top-languages pie normally come from
-  github-readme-stats.vercel.app, which is chronically down (HTTP 503).
-  To add them back reliably, self-host that project on your own Vercel and
-  drop the two <img> tags below in, replacing the domain with your instance:
-    https://YOUR-INSTANCE.vercel.app/api?username=grpcer&...
-    https://YOUR-INSTANCE.vercel.app/api/top-langs/?username=grpcer&...
--->
+</div>
 
 ---
 
