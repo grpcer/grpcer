@@ -91,11 +91,6 @@ const grpcer = {
   <img src="https://github-readme-activity-graph.vercel.app/graph?username=grpcer&hide_border=true&bg_color=00000000&color=0D9488&line=0D9488&point=0D9488&area=true&area_color=99F6E4&title_color=0D9488&text_color=4B5563" alt="activity graph" />
 </picture>
 
-<!-- Trophies (github-profile-trophy — verified up, nord theme matches teal identity) -->
-<a href="https://github.com/ryo-ma/github-profile-trophy">
-  <img src="https://github-profile-trophy.vercel.app/?username=grpcer&theme=nord&no-frame=true&no-bg=true&margin-w=8&column=-1" alt="trophies" />
-</a>
-
 <!-- Snake (dark + light variants, raw.githubusercontent — verified up) -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/grpcer/grpcer/output/snake-dark.svg" />
