@@ -1,0 +1,30 @@
+name: GitHub-Profile-3D-Contrib
+
+on:
+  # 每天 03:00 CST(北京时间) == 19:00 UTC 前一天自动重画
+  schedule:
+    - cron: "0 19 * * *"
+  # 允许在 Actions 页面手动触发（首次上线用得到）
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: generate-github-profile-3d-contrib
+    steps:
+      - uses: actions/checkout@v5
+      - uses: yoshi389111/github-profile-3d-contrib@latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USERNAME: ${{ github.repository_owner }}
+      - name: commit & push
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add -A profile-3d-contrib
+          if git commit -m "chore: 自动生成 3D 贡献日历"; then
+            git push
+          fi
