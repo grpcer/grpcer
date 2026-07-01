@@ -53,10 +53,13 @@ const grpcer = {
 <div align="center">
 
 <!-- Icon wall: colorful skillicons.dev, dark variant for dark theme, light for light theme -->
+<!-- NOTE: commas in the `i` list MUST be %2C-encoded inside srcset — srcset's own
+     comma-separated candidate syntax otherwise truncates the URL at the first comma
+     (this is what caused icons to "disappear" in dark mode before). -->
 <!-- NOTE: no dedicated Jetpack Compose icon upstream — covered in the text line below instead -->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=swift,kotlin,ts,next,react,tailwind,go,c,ruby,postgres,redis,docker&theme=dark&perline=12" />
-  <img src="https://skillicons.dev/icons?i=swift,kotlin,ts,next,react,tailwind,go,c,ruby,postgres,redis,docker&theme=light&perline=12" alt="tech stack" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=swift%2Ckotlin%2Cts%2Cnext%2Creact%2Ctailwind%2Cgo%2Cc%2Cruby%2Cpostgres%2Credis%2Cdocker&theme=dark&perline=12" />
+  <img src="https://skillicons.dev/icons?i=swift%2Ckotlin%2Cts%2Cnext%2Creact%2Ctailwind%2Cgo%2Cc%2Cruby%2Cpostgres%2Credis%2Cdocker&theme=light&perline=12" alt="tech stack" />
 </picture>
 
 </div>
