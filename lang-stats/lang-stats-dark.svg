@@ -1,39 +1,43 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="850" height="194" viewBox="0 0 850 194">
+<svg xmlns="http://www.w3.org/2000/svg" width="850" height="220" viewBox="0 0 850 220">
 <text x="0" y="24" font-family="JetBrains Mono, monospace" font-size="18" font-weight="700" fill="#2DD4BF">Most Used Languages (incl. private repos)</text>
 <clipPath id="barclip-dark"><rect x="0" y="40" width="850" height="14" rx="7.0"/></clipPath>
 <rect x="0" y="40" width="850" height="14" rx="7.0" fill="#30363d"/>
 <g clip-path="url(#barclip-dark)">
-<rect x="0.00" y="40" width="652.61" height="14" fill="#555555"/>
-<rect x="652.61" y="40" width="77.01" height="14" fill="#3178c6"/>
-<rect x="729.62" y="40" width="40.27" height="14" fill="#563d7c"/>
-<rect x="769.89" y="40" width="39.68" height="14" fill="#f1e05a"/>
-<rect x="809.57" y="40" width="33.83" height="14" fill="#e34c26"/>
-<rect x="843.40" y="40" width="4.06" height="14" fill="#3572A5"/>
-<rect x="847.46" y="40" width="1.55" height="14" fill="#8b949e"/>
-<rect x="849.01" y="40" width="0.99" height="14" fill="#701516"/>
+<rect x="0.00" y="40" width="188.67" height="14" fill="#3178c6"/>
+<rect x="188.67" y="40" width="171.18" height="14" fill="#F05138"/>
+<rect x="359.85" y="40" width="168.98" height="14" fill="#A97BFF"/>
+<rect x="528.83" y="40" width="157.17" height="14" fill="#555555"/>
+<rect x="686.00" y="40" width="58.47" height="14" fill="#00ADD8"/>
+<rect x="744.47" y="40" width="47.43" height="14" fill="#f1e05a"/>
+<rect x="791.90" y="40" width="24.21" height="14" fill="#e34c26"/>
+<rect x="816.12" y="40" width="19.48" height="14" fill="#563d7c"/>
+<rect x="835.59" y="40" width="14.41" height="14" fill="#8b949e"/>
 </g>
-<circle cx="6.0" cy="66" r="5" fill="#555555"/>
-<text x="18.0" y="70" font-family="JetBrains Mono, monospace" font-size="13" fill="#C9D1D9">C</text>
-<text x="417.0" y="70" font-family="JetBrains Mono, monospace" font-size="13" text-anchor="end" fill="#9BA1A6">76.8%</text>
-<circle cx="6.0" cy="92" r="5" fill="#3178c6"/>
-<text x="18.0" y="96" font-family="JetBrains Mono, monospace" font-size="13" fill="#C9D1D9">TypeScript</text>
-<text x="417.0" y="96" font-family="JetBrains Mono, monospace" font-size="13" text-anchor="end" fill="#9BA1A6">9.1%</text>
-<circle cx="6.0" cy="118" r="5" fill="#563d7c"/>
-<text x="18.0" y="122" font-family="JetBrains Mono, monospace" font-size="13" fill="#C9D1D9">CSS</text>
-<text x="417.0" y="122" font-family="JetBrains Mono, monospace" font-size="13" text-anchor="end" fill="#9BA1A6">4.7%</text>
-<circle cx="6.0" cy="144" r="5" fill="#f1e05a"/>
-<text x="18.0" y="148" font-family="JetBrains Mono, monospace" font-size="13" fill="#C9D1D9">JavaScript</text>
-<text x="417.0" y="148" font-family="JetBrains Mono, monospace" font-size="13" text-anchor="end" fill="#9BA1A6">4.7%</text>
-<circle cx="431.0" cy="66" r="5" fill="#e34c26"/>
-<text x="443.0" y="70" font-family="JetBrains Mono, monospace" font-size="13" fill="#C9D1D9">HTML</text>
-<text x="842.0" y="70" font-family="JetBrains Mono, monospace" font-size="13" text-anchor="end" fill="#9BA1A6">4.0%</text>
-<circle cx="431.0" cy="92" r="5" fill="#3572A5"/>
-<text x="443.0" y="96" font-family="JetBrains Mono, monospace" font-size="13" fill="#C9D1D9">Python</text>
-<text x="842.0" y="96" font-family="JetBrains Mono, monospace" font-size="13" text-anchor="end" fill="#9BA1A6">0.5%</text>
-<circle cx="431.0" cy="118" r="5" fill="#8b949e"/>
-<text x="443.0" y="122" font-family="JetBrains Mono, monospace" font-size="13" fill="#C9D1D9">CMake</text>
-<text x="842.0" y="122" font-family="JetBrains Mono, monospace" font-size="13" text-anchor="end" fill="#9BA1A6">0.2%</text>
-<circle cx="431.0" cy="144" r="5" fill="#701516"/>
-<text x="443.0" y="148" font-family="JetBrains Mono, monospace" font-size="13" fill="#C9D1D9">Ruby</text>
-<text x="842.0" y="148" font-family="JetBrains Mono, monospace" font-size="13" text-anchor="end" fill="#9BA1A6">0.1%</text>
+<circle cx="6.0" cy="66" r="5" fill="#3178c6"/>
+<text x="18.0" y="70" font-family="JetBrains Mono, monospace" font-size="13" fill="#C9D1D9">TypeScript</text>
+<text x="417.0" y="70" font-family="JetBrains Mono, monospace" font-size="13" text-anchor="end" fill="#9BA1A6">22.2%</text>
+<circle cx="6.0" cy="92" r="5" fill="#F05138"/>
+<text x="18.0" y="96" font-family="JetBrains Mono, monospace" font-size="13" fill="#C9D1D9">Swift</text>
+<text x="417.0" y="96" font-family="JetBrains Mono, monospace" font-size="13" text-anchor="end" fill="#9BA1A6">20.1%</text>
+<circle cx="6.0" cy="118" r="5" fill="#A97BFF"/>
+<text x="18.0" y="122" font-family="JetBrains Mono, monospace" font-size="13" fill="#C9D1D9">Kotlin</text>
+<text x="417.0" y="122" font-family="JetBrains Mono, monospace" font-size="13" text-anchor="end" fill="#9BA1A6">19.9%</text>
+<circle cx="6.0" cy="144" r="5" fill="#555555"/>
+<text x="18.0" y="148" font-family="JetBrains Mono, monospace" font-size="13" fill="#C9D1D9">C</text>
+<text x="417.0" y="148" font-family="JetBrains Mono, monospace" font-size="13" text-anchor="end" fill="#9BA1A6">18.5%</text>
+<circle cx="6.0" cy="170" r="5" fill="#00ADD8"/>
+<text x="18.0" y="174" font-family="JetBrains Mono, monospace" font-size="13" fill="#C9D1D9">Go</text>
+<text x="417.0" y="174" font-family="JetBrains Mono, monospace" font-size="13" text-anchor="end" fill="#9BA1A6">6.9%</text>
+<circle cx="431.0" cy="66" r="5" fill="#f1e05a"/>
+<text x="443.0" y="70" font-family="JetBrains Mono, monospace" font-size="13" fill="#C9D1D9">JavaScript</text>
+<text x="842.0" y="70" font-family="JetBrains Mono, monospace" font-size="13" text-anchor="end" fill="#9BA1A6">5.6%</text>
+<circle cx="431.0" cy="92" r="5" fill="#e34c26"/>
+<text x="443.0" y="96" font-family="JetBrains Mono, monospace" font-size="13" fill="#C9D1D9">HTML</text>
+<text x="842.0" y="96" font-family="JetBrains Mono, monospace" font-size="13" text-anchor="end" fill="#9BA1A6">2.8%</text>
+<circle cx="431.0" cy="118" r="5" fill="#563d7c"/>
+<text x="443.0" y="122" font-family="JetBrains Mono, monospace" font-size="13" fill="#C9D1D9">CSS</text>
+<text x="842.0" y="122" font-family="JetBrains Mono, monospace" font-size="13" text-anchor="end" fill="#9BA1A6">2.3%</text>
+<circle cx="431.0" cy="144" r="5" fill="#8b949e"/>
+<text x="443.0" y="148" font-family="JetBrains Mono, monospace" font-size="13" fill="#C9D1D9">Other</text>
+<text x="842.0" y="148" font-family="JetBrains Mono, monospace" font-size="13" text-anchor="end" fill="#9BA1A6">1.7%</text>
 </svg>
