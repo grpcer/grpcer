@@ -70,6 +70,20 @@ const grpcer = {
 
 ---
 
+### 🌐 Languages
+
+<!-- 聚合全部仓库(含 private)语言字节数，每日自动重画，见 lang-stats.yml + scripts/gen_lang_stats.py -->
+<div align="center">
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./lang-stats/lang-stats-dark.svg" />
+  <img width="850" src="./lang-stats/lang-stats-light.svg" alt="language stats across all repos (incl. private)" />
+</picture>
+
+</div>
+
+---
+
 ### 📊 Activity
 
 <div align="center">

@@ -1,0 +1,30 @@
+name: generate language stats (incl. private repos)
+
+on:
+  # 每天 03:10 CST(北京时间) == 19:10 UTC 前一天自动重画
+  schedule:
+    - cron: "10 19 * * *"
+  # 允许在 Actions 页面手动触发（首次上线用得到）
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: generate-lang-stats
+    steps:
+      - uses: actions/checkout@v5
+      - name: aggregate languages & render SVG
+        env:
+          LANG_STATS_PAT: ${{ secrets.LANG_STATS_PAT }}
+        run: python3 scripts/gen_lang_stats.py
+      - name: commit & push
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add -A lang-stats
+          if git commit -m "chore: 自动生成语言分布图"; then
+            git push
+          fi
