@@ -1,0 +1,20 @@
+[
+  {
+    "type": "radar_contrib_only",
+    "fileName": "radar-dark.svg",
+    "backgroundColor": "transparent",
+    "foregroundColor": "#C9D1D9",
+    "weakColor": "#9BA1A6",
+    "radarColor": "#2DD4BF",
+    "growingAnimation": true
+  },
+  {
+    "type": "radar_contrib_only",
+    "fileName": "radar-light.svg",
+    "backgroundColor": "transparent",
+    "foregroundColor": "#1F2937",
+    "weakColor": "#4B5563",
+    "radarColor": "#0D9488",
+    "growingAnimation": true
+  }
+]
