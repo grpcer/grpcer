@@ -106,11 +106,8 @@ const grpcer = {
   <img src="https://raw.githubusercontent.com/grpcer/grpcer/output/snake-light.svg" alt="snake animation" />
 </picture>
 
-<!-- Contribution radar (yoshi389111/github-profile-3d-contrib, radar_contrib_only — self-hosted, daily cron via profile-3d.yml) -->
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./profile-3d-contrib/radar-dark.svg" />
-  <img width="520" src="./profile-3d-contrib/radar-light.svg" alt="contribution radar (commit/repo/review/pullreq/issue)" />
-</picture>
+<!-- 3D contribution calendar (yoshi389111/github-profile-3d-contrib — self-hosted, daily cron via profile-3d.yml) -->
+<img width="850" src="./profile-3d-contrib/profile-night-green.svg" alt="3d contribution calendar" />
 
 </div>
 

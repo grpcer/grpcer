@@ -21,11 +21,8 @@ jobs:
           # 换成有 private 仓库读权限的 PAT，把 oriveo/tokpet-dev 的贡献活动也纳入统计
           GITHUB_TOKEN: ${{ secrets.LANG_STATS_PAT }}
           USERNAME: ${{ github.repository_owner }}
-          # 只出贡献类型雷达图（commit/repo/review/pullreq/issue），不生成 3D 方块日历和语言饼图——
-          # 3D 日历跟已有的 snake/activity-graph/streak 重复，语言饼图被 lang-stats.yml 的聚合图取代
-          SETTING_JSON: .github/profile-radar-settings.json
-      - name: remove stale preset outputs
-        run: rm -f profile-3d-contrib/profile-*.svg
+      - name: remove stale radar-only outputs
+        run: rm -f profile-3d-contrib/radar-*.svg
       - name: commit & push
         run: |
           git config user.name github-actions
