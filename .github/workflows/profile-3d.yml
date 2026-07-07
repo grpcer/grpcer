@@ -18,7 +18,8 @@ jobs:
       - uses: actions/checkout@v5
       - uses: yoshi389111/github-profile-3d-contrib@latest
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # 换成有 private 仓库读权限的 PAT，把 oriveo/tokpet-dev 的贡献活动也纳入统计
+          GITHUB_TOKEN: ${{ secrets.LANG_STATS_PAT }}
           USERNAME: ${{ github.repository_owner }}
       - name: commit & push
         run: |
