@@ -3,15 +3,15 @@
 <clipPath id="barclip-light"><rect x="0" y="40" width="850" height="14" rx="7.0"/></clipPath>
 <rect x="0" y="40" width="850" height="14" rx="7.0" fill="#e5e7eb"/>
 <g clip-path="url(#barclip-light)">
-<rect x="0.00" y="40" width="247.42" height="14" fill="#F05138"/>
-<rect x="247.42" y="40" width="187.64" height="14" fill="#3178c6"/>
-<rect x="435.06" y="40" width="137.59" height="14" fill="#A97BFF"/>
-<rect x="572.65" y="40" width="86.37" height="14" fill="#00ADD8"/>
-<rect x="659.02" y="40" width="77.45" height="14" fill="#555555"/>
-<rect x="736.46" y="40" width="69.76" height="14" fill="#f1e05a"/>
-<rect x="806.23" y="40" width="14.78" height="14" fill="#e34c26"/>
-<rect x="821.00" y="40" width="11.05" height="14" fill="#3572A5"/>
-<rect x="832.05" y="40" width="17.95" height="14" fill="#8b949e"/>
+<rect x="0.00" y="40" width="247.73" height="14" fill="#F05138"/>
+<rect x="247.73" y="40" width="187.47" height="14" fill="#3178c6"/>
+<rect x="435.20" y="40" width="137.52" height="14" fill="#A97BFF"/>
+<rect x="572.72" y="40" width="86.51" height="14" fill="#00ADD8"/>
+<rect x="659.23" y="40" width="77.28" height="14" fill="#555555"/>
+<rect x="736.51" y="40" width="69.68" height="14" fill="#f1e05a"/>
+<rect x="806.19" y="40" width="14.74" height="14" fill="#e34c26"/>
+<rect x="820.93" y="40" width="11.03" height="14" fill="#3572A5"/>
+<rect x="831.96" y="40" width="18.04" height="14" fill="#8b949e"/>
 </g>
 <circle cx="6.0" cy="66" r="5" fill="#F05138"/>
 <text x="18.0" y="70" font-family="JetBrains Mono, monospace" font-size="13" fill="#1F2937">Swift</text>
