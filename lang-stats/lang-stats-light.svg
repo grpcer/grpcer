@@ -3,25 +3,25 @@
 <clipPath id="barclip-light"><rect x="0" y="40" width="850" height="14" rx="7.0"/></clipPath>
 <rect x="0" y="40" width="850" height="14" rx="7.0" fill="#e5e7eb"/>
 <g clip-path="url(#barclip-light)">
-<rect x="0.00" y="40" width="260.93" height="14" fill="#F05138"/>
-<rect x="260.93" y="40" width="165.15" height="14" fill="#3178c6"/>
-<rect x="426.08" y="40" width="124.24" height="14" fill="#A97BFF"/>
-<rect x="550.32" y="40" width="83.53" height="14" fill="#f1e05a"/>
-<rect x="633.85" y="40" width="79.41" height="14" fill="#00ADD8"/>
-<rect x="713.26" y="40" width="63.80" height="14" fill="#555555"/>
-<rect x="777.06" y="40" width="45.38" height="14" fill="#e34c26"/>
-<rect x="822.44" y="40" width="10.79" height="14" fill="#3572A5"/>
-<rect x="833.23" y="40" width="16.77" height="14" fill="#8b949e"/>
+<rect x="0.00" y="40" width="263.61" height="14" fill="#F05138"/>
+<rect x="263.61" y="40" width="164.29" height="14" fill="#3178c6"/>
+<rect x="427.90" y="40" width="123.52" height="14" fill="#A97BFF"/>
+<rect x="551.42" y="40" width="83.53" height="14" fill="#f1e05a"/>
+<rect x="634.95" y="40" width="79.02" height="14" fill="#00ADD8"/>
+<rect x="713.97" y="40" width="63.43" height="14" fill="#555555"/>
+<rect x="777.40" y="40" width="45.11" height="14" fill="#e34c26"/>
+<rect x="822.52" y="40" width="10.73" height="14" fill="#3572A5"/>
+<rect x="833.24" y="40" width="16.76" height="14" fill="#8b949e"/>
 </g>
 <circle cx="6.0" cy="66" r="5" fill="#F05138"/>
 <text x="18.0" y="70" font-family="JetBrains Mono, monospace" font-size="13" fill="#1F2937">Swift</text>
-<text x="417.0" y="70" font-family="JetBrains Mono, monospace" font-size="13" text-anchor="end" fill="#4B5563">30.7%</text>
+<text x="417.0" y="70" font-family="JetBrains Mono, monospace" font-size="13" text-anchor="end" fill="#4B5563">31.0%</text>
 <circle cx="6.0" cy="92" r="5" fill="#3178c6"/>
 <text x="18.0" y="96" font-family="JetBrains Mono, monospace" font-size="13" fill="#1F2937">TypeScript</text>
-<text x="417.0" y="96" font-family="JetBrains Mono, monospace" font-size="13" text-anchor="end" fill="#4B5563">19.4%</text>
+<text x="417.0" y="96" font-family="JetBrains Mono, monospace" font-size="13" text-anchor="end" fill="#4B5563">19.3%</text>
 <circle cx="6.0" cy="118" r="5" fill="#A97BFF"/>
 <text x="18.0" y="122" font-family="JetBrains Mono, monospace" font-size="13" fill="#1F2937">Kotlin</text>
-<text x="417.0" y="122" font-family="JetBrains Mono, monospace" font-size="13" text-anchor="end" fill="#4B5563">14.6%</text>
+<text x="417.0" y="122" font-family="JetBrains Mono, monospace" font-size="13" text-anchor="end" fill="#4B5563">14.5%</text>
 <circle cx="6.0" cy="144" r="5" fill="#f1e05a"/>
 <text x="18.0" y="148" font-family="JetBrains Mono, monospace" font-size="13" fill="#1F2937">JavaScript</text>
 <text x="417.0" y="148" font-family="JetBrains Mono, monospace" font-size="13" text-anchor="end" fill="#4B5563">9.8%</text>
