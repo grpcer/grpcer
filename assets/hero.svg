@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="236" viewBox="0 0 880 236" fill="none" role="img" aria-label="grpcer — Go backend and indie full-stack builder, shipping on Go, iOS, Android and Web">
+  <title>grpcer — Go backend &amp; indie full-stack builder</title>
+
+  <style>
+    .mono { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+    /* SMIL 负责动效；这里只负责在用户要求减少动效时把它们停成静态帧 */
+    @media (prefers-reduced-motion: reduce) {
+      .sheen { display: none; }
+      .breathe { opacity: 0.9; }
+    }
+  </style>
+
+  <defs>
+    <clipPath id="card">
+      <rect x="0.5" y="0.5" width="879" height="235" rx="12"/>
+    </clipPath>
+
+    <linearGradient id="gridFade" x1="0" y1="150" x2="0" y2="236" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2dd4bf" stop-opacity="0.02"/>
+      <stop offset="1" stop-color="#2dd4bf" stop-opacity="0.19"/>
+    </linearGradient>
+
+    <linearGradient id="horizonGlow" x1="0" y1="0" x2="880" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2dd4bf" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#2dd4bf" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#a78bfa" stop-opacity="0"/>
+    </linearGradient>
+
+    <linearGradient id="wordmark" x1="44" y1="0" x2="288" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5eead4"/>
+      <stop offset="0.42" stop-color="#2dd4bf"/>
+      <stop offset="1" stop-color="#a78bfa"/>
+    </linearGradient>
+
+    <linearGradient id="sheenGrad" x1="0" y1="0" x2="90" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#ffffff" stop-opacity="0.62"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+
+    <radialGradient id="dotGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#2dd4bf" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+
+    <mask id="wordmarkMask">
+      <rect x="0" y="0" width="880" height="236" fill="#000"/>
+      <text class="mono" x="44" y="116" font-size="66" font-weight="800" letter-spacing="-2"
+            textLength="240" lengthAdjust="spacingAndGlyphs" fill="#ffffff">grpcer</text>
+    </mask>
+  </defs>
+
+  <g clip-path="url(#card)">
+    <rect width="880" height="236" fill="#05070d"/>
+
+    <!-- perspective grid -->
+    <g stroke="url(#gridFade)" stroke-width="1">
+      <path d="M440 150 -320 236M440 150 -140 236M440 150 -10 236M440 150 100 236M440 150 200 236"/>
+      <path d="M440 150 290 236M440 150 370 236M440 150 440 236M440 150 510 236M440 150 590 236"/>
+      <path d="M440 150 680 236M440 150 780 236M440 150 920 236M440 150 1020 236M440 150 1200 236"/>
+      <path d="M0 158h880M0 168h880M0 182h880M0 200h880M0 224h880"/>
+    </g>
+    <path d="M0 150h880" stroke="url(#horizonGlow)" stroke-width="1.5"/>
+
+    <!-- HUD corner brackets -->
+    <g stroke="#1e3a3a" stroke-width="1">
+      <path d="M14 30V14h16M866 30V14h-16M14 206v16h16M866 206v16h-16"/>
+    </g>
+
+    <!-- status line -->
+    <circle cx="47" cy="43" r="11" fill="url(#dotGlow)"/>
+    <circle class="breathe" cx="47" cy="43" r="3.5" fill="#2dd4bf">
+      <animate attributeName="opacity" values="0.45;1;0.45" dur="2.6s" repeatCount="indefinite"/>
+    </circle>
+    <text class="mono" x="62" y="47" font-size="10.5" letter-spacing="2.7" fill="#4e7d77">SHIPPING · 100% COMMIT DAYS</text>
+
+    <!-- wordmark: gradient fill + animated sheen, both clipped to the glyphs -->
+    <g mask="url(#wordmarkMask)">
+      <rect x="40" y="56" width="252" height="80" fill="url(#wordmark)"/>
+      <rect class="sheen" x="-92" y="52" width="90" height="88" fill="url(#sheenGrad)">
+        <animateTransform attributeName="transform" type="translate"
+                          values="0 0; 470 0; 470 0" keyTimes="0; 0.55; 1"
+                          keySplines="0.4 0 0.2 1; 0 0 1 1" calcMode="spline"
+                          dur="4.6s" repeatCount="indefinite"/>
+      </rect>
+    </g>
+
+    <!-- tagline -->
+    <text class="mono" x="44" y="163" font-size="13.5" fill="#7c8fa3">Go backend &amp; indie full-stack builder<tspan fill="#24384a">  │  </tspan>Go · iOS · Android · Web</text>
+
+    <!-- stack pills: Go leads, in the accent weight -->
+    <g>
+      <rect x="44" y="180" width="44" height="26" rx="13" fill="#2dd4bf" fill-opacity="0.15" stroke="#2dd4bf" stroke-opacity="0.45"/>
+      <text class="mono" x="66" y="197" font-size="11" font-weight="700" text-anchor="middle" textLength="16" lengthAdjust="spacingAndGlyphs" fill="#5eead4">Go</text>
+
+      <rect x="96" y="180" width="70" height="26" rx="13" fill="#2dd4bf" fill-opacity="0.06" stroke="#2dd4bf" stroke-opacity="0.18"/>
+      <text class="mono" x="131" y="197" font-size="11" text-anchor="middle" textLength="46" lengthAdjust="spacingAndGlyphs" fill="#8fd9d1">SwiftUI</text>
+
+      <rect x="174" y="180" width="70" height="26" rx="13" fill="#2dd4bf" fill-opacity="0.06" stroke="#2dd4bf" stroke-opacity="0.18"/>
+      <text class="mono" x="209" y="197" font-size="11" text-anchor="middle" textLength="46" lengthAdjust="spacingAndGlyphs" fill="#8fd9d1">Compose</text>
+
+      <rect x="252" y="180" width="70" height="26" rx="13" fill="#a78bfa" fill-opacity="0.06" stroke="#a78bfa" stroke-opacity="0.20"/>
+      <text class="mono" x="287" y="197" font-size="11" text-anchor="middle" textLength="46" lengthAdjust="spacingAndGlyphs" fill="#b9a8f0">Next.js</text>
+    </g>
+  </g>
+
+  <rect x="0.5" y="0.5" width="879" height="235" rx="12" stroke="#16202e"/>
+</svg>
