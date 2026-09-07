@@ -8,21 +8,23 @@
 <!-- ╚══════════════════════════════════════════════════════════════╝ -->
 
 <div align="center">
-  <img src="./assets/hero.svg" alt="grpcer — Go backend &amp; indie full-stack builder" />
+  <img src="./assets/hero.svg" width="100%" alt="grpcer — Go backend &amp; indie full-stack builder" />
 </div>
 
 <br />
 
-<!-- 三张卡必须写在同一行、彼此之间不留任何空白：换行或空格会被渲染成一个
-     空格字符，把卡片挤开、总宽超出 README 可用宽度。卡间距是画在 SVG 里的。 -->
-<p align="center"><a href="https://oriveoai.com"><img src="./assets/card-oriveo.svg" alt="oriveo — BYOK multi-model AI client, 15 providers plus custom relay" /></a><a href="https://github.com/grpcer/ownmem"><img src="./assets/card-ownmem.svg" alt="ownmem — Git-native memory for AI coding agents" /></a><a href="https://github.com/grpcer/tokpet"><img src="./assets/card-tokpet.svg" alt="tokpet — desktop pet that watches your AI token spend" /></a></p>
+<!-- 三张卡必须写在同一行、彼此之间不留任何空白：换行或空格会被渲染成一个空格
+     字符，把卡片挤开导致换行。宽度用百分比而不是像素——README 容器宽度随窗口和
+     页面（个人主页 / 仓库页）变化，写死像素就是在猜它有多宽，猜大了第三张会掉行。
+     三张按 296:296:278 分配，合计 99.7%，留 0.3% 余量。卡间距画在 SVG 里。 -->
+<p align="center"><a href="https://oriveoai.com"><img src="./assets/card-oriveo.svg" width="33.9%" alt="oriveo — BYOK multi-model AI client, 15 providers plus custom relay" /></a><a href="https://github.com/grpcer/ownmem"><img src="./assets/card-ownmem.svg" width="33.9%" alt="ownmem — Git-native memory for AI coding agents" /></a><a href="https://github.com/grpcer/tokpet"><img src="./assets/card-tokpet.svg" width="31.9%" alt="tokpet — desktop pet that watches your AI token spend" /></a></p>
 
 <div align="center">
-  <img src="./assets/stats.svg" alt="Current streak, contributions this year and most used languages" />
+  <img src="./assets/stats.svg" width="100%" alt="Current streak, contributions this year and most used languages" />
 </div>
 
 <div align="center">
-  <img src="./assets/activity.svg" alt="Daily commits over the last 26 weeks" />
+  <img src="./assets/activity.svg" width="100%" alt="Daily commits over the last 26 weeks" />
 </div>
 
 ---
