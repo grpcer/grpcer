@@ -14,23 +14,23 @@
     <filter id="glowf1e05a" x="-60%" y="-160%" width="220%" height="420%"><feDropShadow dx="0" dy="0" stdDeviation="3.2" flood-color="#f1e05a" flood-opacity="0.55"/></filter>
   </defs>
   <rect x="0" y="0" width="278" height="100" rx="10" fill="#0e141c" stroke="#1c2733"/>
-  <text x="20" y="27" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="10" fill="#5a6b7d" letter-spacing="2">CURRENT STREAK</text>
-  <text x="20" y="66" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="34" fill="#2dd4bf" font-weight="700" filter="url(#glow2dd4bf)">9</text>
-  <text x="49.4" y="66" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="12" fill="#6b7d8f">days</text>
+  <text x="20" y="27" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="10" fill="#5a6b7d" letter-spacing="2">TOTAL COMMITS</text>
+  <text x="20" y="66" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="34" fill="#2dd4bf" font-weight="700" filter="url(#glow2dd4bf)">7,001</text>
+  <text x="131.0" y="66" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="12" fill="#6b7d8f">all time</text>
   <rect x="20" y="80" width="238" height="3" rx="1.5" fill="#1b2432"/>
-  <rect x="20" y="80" width="71.4" height="3" rx="1.5" fill="#2dd4bf" opacity="1"/>
+  <rect x="20" y="80" width="166.6" height="3" rx="1.5" fill="#2dd4bf" opacity="1"/>
   <rect x="296" y="0" width="278" height="100" rx="10" fill="#0e141c" stroke="#1c2733"/>
-  <text x="316" y="27" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="10" fill="#5a6b7d" letter-spacing="2">CONTRIBUTIONS THIS YEAR</text>
-  <text x="316" y="66" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="34" fill="#e6edf3" font-weight="700">6,772</text>
-  <text x="427.0" y="66" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="12" fill="#6b7d8f"></text>
+  <text x="316" y="27" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="10" fill="#5a6b7d" letter-spacing="2">TOTAL STARS</text>
+  <text x="316" y="66" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="34" fill="#a78bfa" font-weight="700" filter="url(#glowa78bfa)">426</text>
+  <text x="386.2" y="66" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="12" fill="#6b7d8f">across all repos</text>
   <rect x="316" y="80" width="238" height="3" rx="1.5" fill="#1b2432"/>
-  <rect x="316" y="80" width="201.5" height="3" rx="1.5" fill="#42566d" opacity="1"/>
+  <rect x="316" y="80" width="101.4" height="3" rx="1.5" fill="#a78bfa" opacity="1"/>
   <rect x="592" y="0" width="278" height="100" rx="10" fill="#0e141c" stroke="#1c2733"/>
-  <text x="612" y="27" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="10" fill="#5a6b7d" letter-spacing="2">PLATFORMS SHIPPED</text>
-  <text x="612" y="66" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="34" fill="#a78bfa" font-weight="700" filter="url(#glowa78bfa)">4</text>
-  <text x="641.4" y="66" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="12" fill="#6b7d8f">Go · iOS · Android · Web</text>
+  <text x="612" y="27" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="10" fill="#5a6b7d" letter-spacing="2">CURRENT STREAK</text>
+  <text x="612" y="66" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="34" fill="#e6edf3" font-weight="700">9</text>
+  <text x="641.4" y="66" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="12" fill="#6b7d8f">days</text>
   <rect x="612" y="80" width="238" height="3" rx="1.5" fill="#1b2432"/>
-  <rect x="612" y="80" width="238.0" height="3" rx="1.5" fill="#a78bfa" opacity="1"/>
+  <rect x="612" y="80" width="71.4" height="3" rx="1.5" fill="#42566d" opacity="1"/>
   <rect x="0" y="116" width="870" height="142" rx="10" fill="#0e141c" stroke="#1c2733"/>
   <text x="22" y="148" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="10" fill="#5a6b7d" letter-spacing="2">MOST USED LANGUAGES</text>
   <text x="848" y="148" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="10.5" fill="#3d4c5c" text-anchor="end">by code volume · incl. private repos · updated daily</text>

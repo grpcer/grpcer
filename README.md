@@ -38,8 +38,5 @@
 <a href="https://www.npmjs.com/package/ownmem"><img src="https://img.shields.io/badge/ownmem-0E141C?style=for-the-badge&logo=npm&logoColor=A78BFA" alt="ownmem on npm" /></a>
 <a href="https://oriveoai.com"><img src="https://img.shields.io/badge/oriveoai.com-0E141C?style=for-the-badge&logo=safari&logoColor=2DD4BF" alt="oriveo website" /></a>
 <br />
-<img src="https://komarev.com/ghpvc/?username=grpcer&label=Profile%20views&color=2DD4BF&labelColor=0E141C&style=flat-square" alt="profile views" />
-<a href="https://github.com/grpcer?tab=followers"><img src="https://img.shields.io/github/followers/grpcer?style=flat-square&color=2DD4BF&labelColor=0E141C&label=Followers" alt="followers" /></a>
-<br />
 <sub>🐾 Built one commit at a time.</sub>
 </div>

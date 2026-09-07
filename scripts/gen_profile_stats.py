@@ -151,6 +151,50 @@ def activity_metrics(login):
     return streak, ytd_total, days
 
 
+COMMITS_QUERY = """
+query($login: String!, $from: DateTime!, $to: DateTime!) {
+  user(login: $login) {
+    contributionsCollection(from: $from, to: $to) {
+      totalCommitContributions
+      restrictedContributionsCount
+    }
+  }
+}
+"""
+
+
+def total_commits(login, created_year):
+    """从建号那年逐年累加提交数。拿不到就返回 None，由卡片渲染成"暂无"。
+
+    用本人 token 查自己时，私有仓库的提交直接计入 totalCommitContributions，
+    restrictedContributionsCount 会是 0；换成他人 token 才会拆成两半，所以两个都加。
+    """
+    total, got_any = 0, False
+    for year in range(created_year, dt.date.today().year + 1):
+        data = graphql(COMMITS_QUERY, {
+            "login": login,
+            "from": f"{year}-01-01T00:00:00Z",
+            "to": f"{year}-12-31T23:59:59Z",
+        })
+        if not data or not data.get("user"):
+            continue
+        c = data["user"]["contributionsCollection"]
+        total += c["totalCommitContributions"] + c["restrictedContributionsCount"]
+        got_any = True
+    return total if got_any else None
+
+
+def account_created_year(login):
+    data = graphql("query($login: String!) { user(login: $login) { createdAt } }", {"login": login})
+    if not data or not data.get("user"):
+        return dt.date.today().year
+    return int(data["user"]["createdAt"][:4])
+
+
+def total_stars(repos):
+    return sum(r["stargazers_count"] for r in repos)
+
+
 def list_owned_repos():
     repos, page = [], 1
     while True:
@@ -309,7 +353,7 @@ def lang_row(x, y, name, pct, color, is_main):
     return "".join(out)
 
 
-def build_stats_svg(ranked, streak, ytd):
+def build_stats_svg(ranked, streak, commits, stars):
     total = sum(size for _, size in ranked) or 1
     lang_y = 116
     rows = -(-len(ranked) // 2)
@@ -325,15 +369,16 @@ def build_stats_svg(ranked, streak, ytd):
                    f'flood-opacity="0.55"/></filter>\n')
     out.append("  </defs>\n")
 
-    out.append(metric_card(0, "CURRENT STREAK", streak, "days",
+    out.append(metric_card(0, "TOTAL COMMITS", commits, "all time",
+                           min(1.0, commits / 10000) if commits is not None else 0.0,
+                           TEAL, f"glow{TEAL[1:]}"))
+    out.append(metric_card(296, "TOTAL STARS", stars, "across all repos",
+                           min(1.0, stars / 1000) if stars is not None else 0.0,
+                           VIOLET, f"glow{VIOLET[1:]}"))
+    out.append(metric_card(592, "CURRENT STREAK", streak, "days",
                            # 按月映射：9/365 画出来只有 2.5%，看着像渲染坏了
                            min(1.0, streak / 30) if streak is not None else 0.0,
-                           TEAL, f"glow{TEAL[1:]}"))
-    out.append(metric_card(296, "CONTRIBUTIONS THIS YEAR", ytd, "",
-                           min(1.0, ytd / 8000) if ytd is not None else 0.0,
                            "#e6edf3", None, bar_color="#42566d"))
-    out.append(metric_card(592, "PLATFORMS SHIPPED", 4, "Go · iOS · Android · Web",
-                           1.0, VIOLET, f"glow{VIOLET[1:]}"))
 
     out.append(card(0, lang_y, WIDTH, lang_h))
     out.append(text(22, lang_y + 32, "MOST USED LANGUAGES", 10, LABEL, spacing=2))
@@ -435,7 +480,8 @@ def main():
 
     os.makedirs("assets", exist_ok=True)
     products = build_all_cards(repo_stars("ownmem"), repo_stars("tokpet"))
-    products["assets/stats.svg"] = build_stats_svg(ranked, streak, ytd)
+    commits = total_commits(OWNER, account_created_year(OWNER))
+    products["assets/stats.svg"] = build_stats_svg(ranked, streak, commits, total_stars(repos))
     products["assets/activity.svg"] = build_activity_svg(days)
     for path, svg in products.items():
         with open(path, "w", encoding="utf-8") as f:
@@ -444,7 +490,8 @@ def main():
 
     total = sum(s for _, s in ranked) or 1
     print("聚合仓库:", ", ".join(r["name"] for r in repos))
-    print("连续提交天数:", streak, "| 今年贡献:", ytd, "| 日历天数:", len(days))
+    print("累计提交:", commits, "| 总 star:", total_stars(repos),
+          "| 连续天数:", streak, "| 今年贡献:", ytd, "| 日历天数:", len(days))
     print("语言字节占比:", {n: f"{100 * s / total:.1f}%" for n, s in ranked})
 
 
