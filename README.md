@@ -2,9 +2,10 @@
 <!-- ║  grpcer · GitHub Profile README                                ║ -->
 <!-- ║  Every visual is a self-hosted SVG under assets/ — no badge    ║ -->
 <!-- ║  service decides how this page looks.                          ║ -->
-<!-- ║  hero.svg is hand-written and static; card-*/stats/activity    ║ -->
-<!-- ║  are redrawn daily by profile-stats.yml.                       ║ -->
-<!-- ║  Dark cards on purpose: they read the same in both themes.     ║ -->
+<!-- ║  hero.svg is hand-written, static and dark-only: a dark        ║ -->
+<!-- ║  banner works on a light page, but its neon grid would not     ║ -->
+<!-- ║  survive a white background. Everything else ships -dark and   ║ -->
+<!-- ║  -light, redrawn daily by profile-stats.yml.                   ║ -->
 <!-- ╚══════════════════════════════════════════════════════════════╝ -->
 
 <div align="center">
@@ -16,15 +17,16 @@
 <!-- 三张卡必须写在同一行、彼此之间不留任何空白：换行或空格会被渲染成一个空格
      字符，把卡片挤开导致换行。宽度用百分比而不是像素——README 容器宽度随窗口和
      页面（个人主页 / 仓库页）变化，写死像素就是在猜它有多宽，猜大了第三张会掉行。
-     三张按 296:296:278 分配，合计 99.7%，留 0.3% 余量。卡间距画在 SVG 里。 -->
-<p align="center"><a href="https://oriveoai.com"><img src="./assets/card-oriveo.svg" width="33.9%" alt="oriveo — BYOK multi-model AI client, 15 providers plus custom relay" /></a><a href="https://github.com/grpcer/ownmem"><img src="./assets/card-ownmem.svg" width="33.9%" alt="ownmem — Git-native memory for AI coding agents" /></a><a href="https://github.com/grpcer/tokpet"><img src="./assets/card-tokpet.svg" width="31.9%" alt="tokpet — desktop pet that watches your AI token spend" /></a></p>
+     三张按 296:296:278 分配，合计 99.7%，留 0.3% 余量。卡间距画在 SVG 里。
+     <picture> 跟随 GitHub 的主题设置切换，不只看系统的 prefers-color-scheme。 -->
+<p align="center"><a href="https://oriveoai.com"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/card-oriveo-dark.svg" /><img src="./assets/card-oriveo-light.svg" width="33.9%" alt="oriveo — BYOK multi-model AI client, 15 providers plus custom relay" /></picture></a><a href="https://github.com/grpcer/ownmem"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/card-ownmem-dark.svg" /><img src="./assets/card-ownmem-light.svg" width="33.9%" alt="ownmem — Git-native memory for AI coding agents" /></picture></a><a href="https://github.com/grpcer/tokpet"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/card-tokpet-dark.svg" /><img src="./assets/card-tokpet-light.svg" width="31.9%" alt="tokpet — desktop pet that watches your AI token spend" /></picture></a></p>
 
 <div align="center">
-  <img src="./assets/stats.svg" width="100%" alt="Current streak, contributions this year and most used languages" />
+  <picture><source media="(prefers-color-scheme: dark)" srcset="./assets/stats-dark.svg" /><img src="./assets/stats-light.svg" width="100%" alt="Total commits, total stars, current streak and most used languages" /></picture>
 </div>
 
 <div align="center">
-  <img src="./assets/activity.svg" width="100%" alt="Daily commits over the last 26 weeks" />
+  <picture><source media="(prefers-color-scheme: dark)" srcset="./assets/activity-dark.svg" /><img src="./assets/activity-light.svg" width="100%" alt="Daily commits over the last 26 weeks" /></picture>
 </div>
 
 ---

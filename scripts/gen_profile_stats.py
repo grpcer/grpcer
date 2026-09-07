@@ -4,8 +4,11 @@
 产物：
   assets/card-*.svg    三张项目卡（oriveo / ownmem / tokpet），star 数取实时值
                        拆成独立文件是为了各自包一层 <a>——图内链接点不动
-  assets/stats.svg     指标卡 + 语言分布
-  assets/activity.svg  最近 26 周每日提交柱状图
+  assets/stats-*.svg     指标卡 + 语言分布
+  assets/activity-*.svg  最近 26 周每日提交柱状图
+每张都出 -dark / -light 两版，README 用 <picture> 按主题切换。
+hero.svg 例外，只有深色一版：深色 banner 压在浅色页面上是成立的，
+而它那套透视网格 + 霓虹发光换成白底就不成立了。
 
 私有仓库的源码内容不会被写入产物，只有聚合后的计数与语言字节占比会出现在生成的 SVG 里。
 语言口径是 GitHub linguist 的**字节数**——UI 代码天然比后端代码体积大，所以卡片标题写明了口径。
@@ -46,12 +49,6 @@ LANG_COLORS = {
 WIDTH = 870          # README 容器约 878，留 8px 余量：并排的卡片超一点就换行
 SEGMENTS = 28
 ACTIVITY_DAYS = 182          # 26 周：880px 下每根柱子还有 4.6px，再长就糊成一片了
-
-CARD_BG = "#0e141c"
-CARD_STROKE = "#1c2733"
-LABEL = "#5a6b7d"
-TEAL = "#2dd4bf"
-VIOLET = "#a78bfa"
 
 MONO = ('font-family="JetBrains Mono, ui-monospace, SFMono-Regular, '
         'Menlo, Consolas, Liberation Mono, monospace"')
@@ -222,22 +219,71 @@ def top_n_with_other(totals, n=7):
     return head
 
 
+# ---------------------------------------------------------------- theming
+
+THEMES = {
+    "dark": {
+        "card_bg": "#0e141c", "card_stroke": "#1c2733",
+        "label": "#5a6b7d", "value": "#e6edf3", "body": "#8b98a5",
+        "row": "#c9d1d9", "faint": "#3d4c5c", "track": "#1b2432",
+        "teal": "#2dd4bf", "teal_soft": "#5eead4", "violet": "#a78bfa",
+        "neutral_bar": "#42566d", "glow": 0.55, "bar_glow": 0.40,
+        "bar_top": "#5eead4", "bar_mid": "#2dd4bf", "bar_bottom": "#0f766e",
+        "main_fill": 0.07, "main_stroke": 0.16, "arrow": 0.55,
+    },
+    "light": {
+        # 卡片比页面略暗（页面纯白、卡片 #f6f8fa），和 GitHub 原生卡片一个路子；
+        # 深色版里是反过来的——卡片比页面亮。
+        "card_bg": "#f6f8fa", "card_stroke": "#d1d9e0",
+        "label": "#59636e", "value": "#1f2328", "body": "#59636e",
+        "row": "#1f2328", "faint": "#818b98", "track": "#e4e8ed",
+        "teal": "#0d9488", "teal_soft": "#0f766e", "violet": "#7c3aed",
+        "neutral_bar": "#9aa5b1", "glow": 0.0, "bar_glow": 0.0,
+        "bar_top": "#2dd4bf", "bar_mid": "#14b8a6", "bar_bottom": "#0f766e",
+        "main_fill": 0.10, "main_stroke": 0.35, "arrow": 0.7,
+    },
+}
+
+
+def tone_for_light(hex_color):
+    """把过亮的 linguist 色压暗，否则在白底卡片上几乎看不见（JavaScript 的黄最明显）。"""
+    r, g, b = (int(hex_color[i:i + 2], 16) for i in (1, 3, 5))
+    lum = (0.299 * r + 0.587 * g + 0.114 * b) / 255
+    if lum <= 0.72:
+        return hex_color
+    f = 0.72 / lum
+    return "#%02x%02x%02x" % (int(r * f), int(g * f), int(b * f))
+
+
+def lang_color(name, th):
+    c = LANG_COLORS.get(name, LANG_COLORS["Other"])
+    return tone_for_light(c) if th["glow"] == 0 else c
+
+
 # ---------------------------------------------------------------- rendering
 
 def esc(s):
     return str(s).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
-def svg_open(height, label):
+def svg_open(width, height, label):
     return (f'<?xml version="1.0" encoding="UTF-8"?>\n'
-            f'<svg xmlns="http://www.w3.org/2000/svg" width="{WIDTH}" height="{height}" '
-            f'viewBox="0 0 {WIDTH} {height}" fill="none" role="img" aria-label="{esc(label)}">\n'
+            f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
+            f'viewBox="0 0 {width} {height}" fill="none" role="img" aria-label="{esc(label)}">\n'
             f'  <title>{esc(label)}</title>\n')
 
 
-def card(x, y, w, h):
+def card(th, x, y, w, h):
     return (f'  <rect x="{x}" y="{y}" width="{w}" height="{h}" rx="10" '
-            f'fill="{CARD_BG}" stroke="{CARD_STROKE}"/>\n')
+            f'fill="{th["card_bg"]}" stroke="{th["card_stroke"]}"/>\n')
+
+
+def glow_filter(fid, color, opacity, deviation=3.2):
+    if opacity <= 0:
+        return ""
+    return (f'    <filter id="{fid}" x="-60%" y="-160%" width="220%" height="420%">'
+            f'<feDropShadow dx="0" dy="0" stdDeviation="{deviation}" flood-color="{color}" '
+            f'flood-opacity="{opacity}"/></filter>\n')
 
 
 def text(x, y, s, size, fill, *, weight=None, anchor=None, spacing=None,
@@ -265,164 +311,159 @@ CARD_ICONS = {
 CARD_W, CARD_H, CARD_GAP = 278, 148, 18   # 278*3 + 18*2 = 870
 
 
-def build_card_svg(icon, tag, name, lines, footer, color, *, trailing_gap):
+def build_card_svg(th, icon, tag, name, lines, footer, accent, *, trailing_gap):
     """一张项目卡。trailing_gap=True 时右侧留出卡间距，好让三张紧挨着排也不粘连。"""
     width = CARD_W + (CARD_GAP if trailing_gap else 0)
-    out = [f'<?xml version="1.0" encoding="UTF-8"?>\n'
-           f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{CARD_H}" '
-           f'viewBox="0 0 {width} {CARD_H}" fill="none" role="img" '
-           f'aria-label="{esc(name)} — {esc(" ".join(lines))}">\n'
-           f'  <title>{esc(name)}</title>\n']
-    out.append(card(0, 0, CARD_W, CARD_H))
-    out.append(f'  <g transform="translate({CARD_W - 44}, 20)" stroke="{color}" stroke-opacity="0.5" '
+    out = [svg_open(width, CARD_H, f'{name} — {" ".join(lines)}')]
+    out.append(card(th, 0, 0, CARD_W, CARD_H))
+    out.append(f'  <g transform="translate({CARD_W - 44}, 20)" stroke="{accent}" stroke-opacity="0.5" '
                f'stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">'
                f'{CARD_ICONS[icon]}</g>\n')
-    out.append(text(20, 32, tag, 10, color, spacing=2, opacity="0.9"))
-    out.append(text(20, 62, name, 21, "#e6edf3", weight="700"))
+    out.append(text(20, 32, tag, 10, accent, spacing=2, opacity="0.9"))
+    out.append(text(20, 62, name, 21, th["value"], weight="700"))
     for i, line in enumerate(lines):
-        out.append(text(20, 88 + i * 17, line, 11.5, "#8b98a5"))
-    out.append(text(20, CARD_H - 20, footer, 11, color, opacity="0.85"))
+        out.append(text(20, 88 + i * 17, line, 11.5, th["body"]))
+    out.append(text(20, CARD_H - 20, footer, 11, accent, opacity="0.85"))
     # 右下角箭头：图片本身没有 hover 态，用它暗示这张卡是可以点的
-    out.append(f'  <path d="M{CARD_W - 34} {CARD_H - 24}h10m-4-4l4 4-4 4" stroke="{color}" '
-               f'stroke-opacity="0.55" stroke-width="1.5" fill="none" '
+    out.append(f'  <path d="M{CARD_W - 34} {CARD_H - 24}h10m-4-4l4 4-4 4" stroke="{accent}" '
+               f'stroke-opacity="{th["arrow"]}" stroke-width="1.5" fill="none" '
                f'stroke-linecap="round" stroke-linejoin="round"/>\n')
     out.append("</svg>\n")
     return "".join(out)
 
 
-def build_all_cards(ownmem_stars, tokpet_stars):
-    def stars(n, suffix):
-        return f"★ {n} · {suffix}" if n is not None else suffix
+def build_all_cards(th, suffix, ownmem_stars, tokpet_stars):
+    def stars(n, tail):
+        return f"\u2605 {n} \u00b7 {tail}" if n is not None else tail
     return {
-        "assets/card-oriveo.svg": build_card_svg(
-            "cube", "FOUNDER", "oriveo",
+        f"assets/card-oriveo-{suffix}.svg": build_card_svg(
+            th, "cube", "FOUNDER", "oriveo",
             ["BYOK multi-model AI client.", "15 providers + custom relay."],
-            "iOS · Android · Web · Go", TEAL, trailing_gap=True),
-        "assets/card-ownmem.svg": build_card_svg(
-            "book", "OPEN SOURCE", "ownmem",
+            "iOS \u00b7 Android \u00b7 Web \u00b7 Go", th["teal"], trailing_gap=True),
+        f"assets/card-ownmem-{suffix}.svg": build_card_svg(
+            th, "book", "OPEN SOURCE", "ownmem",
             ["Git-native memory for AI", "coding agents. On npm."],
-            stars(ownmem_stars, "Apache-2.0"), VIOLET, trailing_gap=True),
-        "assets/card-tokpet.svg": build_card_svg(
-            "pet", "OPEN SOURCE", "tokpet",
+            stars(ownmem_stars, "Apache-2.0"), th["violet"], trailing_gap=True),
+        f"assets/card-tokpet-{suffix}.svg": build_card_svg(
+            th, "pet", "OPEN SOURCE", "tokpet",
             ["Desktop pet that watches", "your AI token spend."],
-            stars(tokpet_stars, "brew install"), TEAL, trailing_gap=False),
+            stars(tokpet_stars, "brew install"), th["teal"], trailing_gap=False),
     }
 
 
 # ---- stats ---------------------------------------------------------------
 
-def metric_card(x, label, value, unit, bar_pct, color, glow, bar_color=None):
+def metric_card(th, x, label, value, unit, bar_pct, color, glow, bar_color=None):
     """小标签 + 大数字 + 一条细进度线。value 为 None 时诚实显示"暂无"。"""
     w = 278
-    shown = "—" if value is None else f"{value:,}"
+    shown = "\u2014" if value is None else f"{value:,}"
     if value is None:
         unit = "no data yet"
     bar_color = bar_color or color
-    out = [card(x, 0, w, 100)]
-    out.append(text(x + 20, 27, label, 10, LABEL, spacing=2))
-    out.append(text(x + 20, 66, shown, 34, color if value is not None else "#3d4c5c",
+    out = [card(th, x, 0, w, 100)]
+    out.append(text(x + 20, 27, label, 10, th["label"], spacing=2))
+    out.append(text(x + 20, 66, shown, 34, color if value is not None else th["faint"],
                     weight="700", filt=glow if (value is not None and glow) else None))
     # 等宽字 advance ≈ 0.6em，34px → 20.4px/字符；再加 9px 让单位不贴着数字
-    out.append(text(round(x + 20 + len(shown) * 20.4 + 9, 1), 66, unit, 12, "#6b7d8f"))
-    out.append(f'  <rect x="{x + 20}" y="80" width="{w - 40}" height="3" rx="1.5" fill="#1b2432"/>\n')
+    out.append(text(round(x + 20 + len(shown) * 20.4 + 9, 1), 66, unit, 12, th["body"]))
+    out.append(f'  <rect x="{x + 20}" y="80" width="{w - 40}" height="3" rx="1.5" fill="{th["track"]}"/>\n')
     out.append(f'  <rect x="{x + 20}" y="80" width="{(w - 40) * bar_pct:.1f}" height="3" rx="1.5" '
                f'fill="{bar_color}" opacity="{1 if value is not None else 0.25}"/>\n')
     return "".join(out)
 
 
-def lang_row(x, y, name, pct, color, is_main):
+def lang_row(th, x, y, name, pct, is_main):
     """名字 + 分段块条 + 百分比。主力语言整行提亮——字节占比说不了"我是干什么的"。"""
+    color = lang_color(name, th)
     filled = max(1, round(SEGMENTS * pct / 100))
     out = []
     if is_main:
         out.append(f'  <rect x="{x - 8}" y="{y - 6}" width="394" height="22" rx="5" '
-                   f'fill="{TEAL}" fill-opacity="0.07" stroke="{TEAL}" stroke-opacity="0.16"/>\n')
-    out.append(text(x, y + 9, name.lower(), 12, "#5eead4" if is_main else "#c9d1d9",
+                   f'fill="{th["teal"]}" fill-opacity="{th["main_fill"]}" '
+                   f'stroke="{th["teal"]}" stroke-opacity="{th["main_stroke"]}"/>\n')
+    out.append(text(x, y + 9, name.lower(), 12, th["teal_soft"] if is_main else th["row"],
                     weight="700" if is_main else None))
     if is_main:
-        out.append(text(x + 30, y + 9, "MAIN", 9, TEAL, spacing=1.2, opacity="0.75"))
+        out.append(text(x + 30, y + 9, "MAIN", 9, th["teal"], spacing=1.2, opacity="0.75"))
     lit = []
     for i in range(SEGMENTS):
         sx = x + 102 + i * 8
         if i < filled:
             lit.append(f'<rect x="{sx}" y="{y}" width="6" height="10" rx="1" fill="{color}"/>')
         else:
-            out.append(f'  <rect x="{sx}" y="{y}" width="6" height="10" rx="1" fill="#1b2432"/>\n')
-    out.append(f'  <g filter="url(#glow{color[1:]})">{"".join(lit)}</g>\n')
-    out.append(text(x + 378, y + 9, f"{pct:.1f}%", 11.5, LABEL, anchor="end"))
+            out.append(f'  <rect x="{sx}" y="{y}" width="6" height="10" rx="1" fill="{th["track"]}"/>\n')
+    cells = "".join(lit)
+    out.append(f'  <g filter="url(#glow{color[1:]})">{cells}</g>\n' if th["glow"] > 0
+               else f'  <g>{cells}</g>\n')
+    out.append(text(x + 378, y + 9, f"{pct:.1f}%", 11.5, th["label"], anchor="end"))
     return "".join(out)
 
 
-def build_stats_svg(ranked, streak, commits, stars):
+def build_stats_svg(th, ranked, streak, commits, stars):
     total = sum(size for _, size in ranked) or 1
     lang_y = 116
     rows = -(-len(ranked) // 2)
     lang_h = 54 + rows * 19 + 12
     height = lang_y + lang_h
 
-    colors = {LANG_COLORS.get(n, LANG_COLORS["Other"]) for n, _ in ranked} | {TEAL, VIOLET}
-    out = [svg_open(height, "grpcer — activity and most used languages")]
+    out = [svg_open(WIDTH, height, "grpcer — commits, stars, streak and most used languages")]
     out.append("  <defs>\n")
-    for c in sorted(colors):
-        out.append(f'    <filter id="glow{c[1:]}" x="-60%" y="-160%" width="220%" height="420%">'
-                   f'<feDropShadow dx="0" dy="0" stdDeviation="3.2" flood-color="{c}" '
-                   f'flood-opacity="0.55"/></filter>\n')
+    for c in sorted({lang_color(n, th) for n, _ in ranked} | {th["teal"], th["violet"]}):
+        out.append(glow_filter(f"glow{c[1:]}", c, th["glow"]))
     out.append("  </defs>\n")
 
-    out.append(metric_card(0, "TOTAL COMMITS", commits, "all time",
+    tealglow = f'glow{th["teal"][1:]}' if th["glow"] > 0 else None
+    violetglow = f'glow{th["violet"][1:]}' if th["glow"] > 0 else None
+    out.append(metric_card(th, 0, "TOTAL COMMITS", commits, "all time",
                            min(1.0, commits / 10000) if commits is not None else 0.0,
-                           TEAL, f"glow{TEAL[1:]}"))
-    out.append(metric_card(296, "TOTAL STARS", stars, "across all repos",
+                           th["teal"], tealglow))
+    out.append(metric_card(th, 296, "TOTAL STARS", stars, "across all repos",
                            min(1.0, stars / 1000) if stars is not None else 0.0,
-                           VIOLET, f"glow{VIOLET[1:]}"))
-    out.append(metric_card(592, "CURRENT STREAK", streak, "days",
+                           th["violet"], violetglow))
+    out.append(metric_card(th, 592, "CURRENT STREAK", streak, "days",
                            # 按月映射：9/365 画出来只有 2.5%，看着像渲染坏了
                            min(1.0, streak / 30) if streak is not None else 0.0,
-                           "#e6edf3", None, bar_color="#42566d"))
+                           th["value"], None, bar_color=th["neutral_bar"]))
 
-    out.append(card(0, lang_y, WIDTH, lang_h))
-    out.append(text(22, lang_y + 32, "MOST USED LANGUAGES", 10, LABEL, spacing=2))
-    out.append(text(848, lang_y + 32, "by code volume · incl. private repos · updated daily",
-                    10.5, "#3d4c5c", anchor="end"))
+    out.append(card(th, 0, lang_y, WIDTH, lang_h))
+    out.append(text(22, lang_y + 32, "MOST USED LANGUAGES", 10, th["label"], spacing=2))
+    out.append(text(848, lang_y + 32, "by code volume \u00b7 incl. private repos \u00b7 updated daily",
+                    10.5, th["faint"], anchor="end"))
     left, right = ranked[:rows], ranked[rows:]
     for i in range(rows):
         y = lang_y + 54 + i * 19
-        n, s = left[i]
-        out.append(lang_row(22, y, n, 100 * s / total,
-                            LANG_COLORS.get(n, LANG_COLORS["Other"]), n == MAIN_STACK))
+        n, sz = left[i]
+        out.append(lang_row(th, 22, y, n, 100 * sz / total, n == MAIN_STACK))
         if i < len(right):
-            n, s = right[i]
-            out.append(lang_row(470, y, n, 100 * s / total,
-                                LANG_COLORS.get(n, LANG_COLORS["Other"]), n == MAIN_STACK))
+            n, sz = right[i]
+            out.append(lang_row(th, 470, y, n, 100 * sz / total, n == MAIN_STACK))
     out.append("</svg>\n")
     return "".join(out)
 
 
 # ---- activity ------------------------------------------------------------
 
-def build_activity_svg(days):
+def build_activity_svg(th, days):
     """最近 26 周的每日提交柱状图。没有数据时画一张明说"暂无"的空卡，不画假柱子。"""
     pad, bar_top, bar_h = 22, 54, 96
     height = bar_top + bar_h + 40
-    out = [svg_open(height, "grpcer — daily commits over the last 26 weeks")]
+    out = [svg_open(WIDTH, height, "grpcer — daily commits over the last 26 weeks")]
     out.append(f'  <defs>\n'
                f'    <linearGradient id="barGrad" x1="0" y1="{bar_top}" x2="0" '
                f'y2="{bar_top + bar_h}" gradientUnits="userSpaceOnUse">\n'
-               f'      <stop offset="0" stop-color="#5eead4"/>\n'
-               f'      <stop offset="0.55" stop-color="{TEAL}"/>\n'
-               f'      <stop offset="1" stop-color="#0f766e"/>\n'
-               f'    </linearGradient>\n'
-               f'    <filter id="barGlow" x="-30%" y="-30%" width="160%" height="160%">'
-               f'<feDropShadow dx="0" dy="0" stdDeviation="2.4" flood-color="{TEAL}" '
-               f'flood-opacity="0.4"/></filter>\n'
-               f'  </defs>\n')
-    out.append(card(0, 0, WIDTH, height))
-    out.append(text(pad, 32, "DAILY COMMITS", 10, LABEL, spacing=2))
+               f'      <stop offset="0" stop-color="{th["bar_top"]}"/>\n'
+               f'      <stop offset="0.55" stop-color="{th["bar_mid"]}"/>\n'
+               f'      <stop offset="1" stop-color="{th["bar_bottom"]}"/>\n'
+               f'    </linearGradient>\n')
+    out.append(glow_filter("barGlow", th["teal"], th["bar_glow"], deviation=2.4))
+    out.append('  </defs>\n')
+    out.append(card(th, 0, 0, WIDTH, height))
+    out.append(text(pad, 32, "DAILY COMMITS", 10, th["label"], spacing=2))
 
     if not days:
-        out.append(text(WIDTH - pad, 32, "no data yet", 10.5, "#3d4c5c", anchor="end"))
+        out.append(text(WIDTH - pad, 32, "no data yet", 10.5, th["faint"], anchor="end"))
         out.append(text(WIDTH / 2, bar_top + bar_h / 2, "contribution data unavailable",
-                        12, "#3d4c5c", anchor="middle"))
+                        12, th["faint"], anchor="middle"))
         out.append("</svg>\n")
         return "".join(out)
 
@@ -433,8 +474,8 @@ def build_activity_svg(days):
     step = (WIDTH - 2 * pad) / ACTIVITY_DAYS
     bw = round(step - 1.1, 2)
 
-    out.append(text(WIDTH - pad, 32,
-                    f"last 26 weeks · peak {peak} on one day", 10.5, "#3d4c5c", anchor="end"))
+    out.append(text(WIDTH - pad, 32, f"last 26 weeks \u00b7 peak {peak} on one day",
+                    10.5, th["faint"], anchor="end"))
 
     bars, zeros = [], []
     for i, c in enumerate(counts):
@@ -442,15 +483,16 @@ def build_activity_svg(days):
         if c == 0:
             # 零贡献那天画成 2px 的墩子：空白会被误读成"没数据"，这里是"那天真的是 0"
             zeros.append(f'<rect x="{x}" y="{bar_top + bar_h - 2}" width="{bw}" height="2" '
-                         f'rx="1" fill="#1b2432"/>')
+                         f'rx="1" fill="{th["track"]}"/>')
             continue
         hgt = max(3.0, round(bar_h * c / peak, 2))
         bars.append(f'<rect x="{x}" y="{round(bar_top + bar_h - hgt, 2)}" width="{bw}" '
                     f'height="{hgt}" rx="1.2" fill="url(#barGrad)"/>')
     out.append(f'  <g>{"".join(zeros)}</g>\n')
-    out.append(f'  <g filter="url(#barGlow)">{"".join(bars)}</g>\n')
+    out.append(f'  <g filter="url(#barGlow)">{"".join(bars)}</g>\n' if th["bar_glow"] > 0
+               else f'  <g>{"".join(bars)}</g>\n')
     out.append(f'  <rect x="{pad}" y="{bar_top + bar_h}" width="{WIDTH - 2 * pad}" height="1" '
-               f'fill="#1c2733"/>\n')
+               f'fill="{th["card_stroke"]}"/>\n')
 
     # 月份刻度：每个月 1 号落在窗口里就标一次
     seen = set()
@@ -458,7 +500,7 @@ def build_activity_svg(days):
         if d.day == 1 and d.month not in seen:
             seen.add(d.month)
             out.append(text(round(pad + i * step, 2), bar_top + bar_h + 20,
-                            d.strftime("%b"), 10, "#3d4c5c"))
+                            d.strftime("%b"), 10, th["faint"]))
     out.append("</svg>\n")
     return "".join(out)
 
@@ -477,20 +519,25 @@ def main():
     repos = list_owned_repos()
     ranked = top_n_with_other(aggregate_languages(repos))
     streak, ytd, days = activity_metrics(OWNER)
+    commits = total_commits(OWNER, account_created_year(OWNER))
+    stars = total_stars(repos)
+    om, tp = repo_stars("ownmem"), repo_stars("tokpet")
 
     os.makedirs("assets", exist_ok=True)
-    products = build_all_cards(repo_stars("ownmem"), repo_stars("tokpet"))
-    commits = total_commits(OWNER, account_created_year(OWNER))
-    products["assets/stats.svg"] = build_stats_svg(ranked, streak, commits, total_stars(repos))
-    products["assets/activity.svg"] = build_activity_svg(days)
-    for path, svg in products.items():
-        with open(path, "w", encoding="utf-8") as f:
-            f.write(svg)
-        print("写出:", path)
+    written = []
+    for suffix, th in (("dark", THEMES["dark"]), ("light", THEMES["light"])):
+        products = build_all_cards(th, suffix, om, tp)
+        products[f"assets/stats-{suffix}.svg"] = build_stats_svg(th, ranked, streak, commits, stars)
+        products[f"assets/activity-{suffix}.svg"] = build_activity_svg(th, days)
+        for path, svg in products.items():
+            with open(path, "w", encoding="utf-8") as f:
+                f.write(svg)
+            written.append(path)
+    print("写出:", len(written), "个文件")
 
     total = sum(s for _, s in ranked) or 1
     print("聚合仓库:", ", ".join(r["name"] for r in repos))
-    print("累计提交:", commits, "| 总 star:", total_stars(repos),
+    print("累计提交:", commits, "| 总 star:", stars,
           "| 连续天数:", streak, "| 今年贡献:", ytd, "| 日历天数:", len(days))
     print("语言字节占比:", {n: f"{100 * s / total:.1f}%" for n, s in ranked})
 
