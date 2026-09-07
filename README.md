@@ -29,17 +29,17 @@
 
 ---
 
+<!-- 这一段连续写、不留空行：<div> 里的空行会被当成段落分隔，
+     加上 <br /><br /> 就会在页脚撑出一大片空白。换行用 <br /> 显式控制。
+     badge 一律写成单段（badge/<文字>-<色>），两段式的 label 会渲染成灰底色块，
+     和整页的深色卡片不搭。 -->
 <div align="center">
-
 <a href="mailto:ifconfigure@gmail.com"><img src="https://img.shields.io/badge/Email-0E141C?style=for-the-badge&logo=gmail&logoColor=2DD4BF" alt="email" /></a>
-<a href="https://www.npmjs.com/package/ownmem"><img src="https://img.shields.io/badge/npm-ownmem-0E141C?style=for-the-badge&logo=npm&logoColor=A78BFA" alt="ownmem on npm" /></a>
-<a href="https://oriveoai.com"><img src="https://img.shields.io/badge/oriveo-oriveoai.com-0E141C?style=for-the-badge&logo=safari&logoColor=2DD4BF" alt="oriveo website" /></a>
-
-<br /><br />
-
-<img src="https://komarev.com/ghpvc/?username=grpcer&label=Profile+views&color=2DD4BF&style=flat-square" alt="profile views" />
+<a href="https://www.npmjs.com/package/ownmem"><img src="https://img.shields.io/badge/ownmem-0E141C?style=for-the-badge&logo=npm&logoColor=A78BFA" alt="ownmem on npm" /></a>
+<a href="https://oriveoai.com"><img src="https://img.shields.io/badge/oriveoai.com-0E141C?style=for-the-badge&logo=safari&logoColor=2DD4BF" alt="oriveo website" /></a>
+<br />
+<img src="https://komarev.com/ghpvc/?username=grpcer&label=Profile%20views&color=2DD4BF&labelColor=0E141C&style=flat-square" alt="profile views" />
 <a href="https://github.com/grpcer?tab=followers"><img src="https://img.shields.io/github/followers/grpcer?style=flat-square&color=2DD4BF&labelColor=0E141C&label=Followers" alt="followers" /></a>
-
+<br />
+<sub>🐾 Built one commit at a time.</sub>
 </div>
-
-<div align="center"><sub>🐾 Built one commit at a time.</sub></div>
