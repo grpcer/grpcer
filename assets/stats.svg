@@ -15,10 +15,10 @@
   </defs>
   <rect x="0" y="0" width="278" height="100" rx="10" fill="#0e141c" stroke="#1c2733"/>
   <text x="20" y="27" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="10" fill="#5a6b7d" letter-spacing="2">TOTAL COMMITS</text>
-  <text x="20" y="66" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="34" fill="#2dd4bf" font-weight="700" filter="url(#glow2dd4bf)">7,001</text>
+  <text x="20" y="66" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="34" fill="#2dd4bf" font-weight="700" filter="url(#glow2dd4bf)">6,764</text>
   <text x="131.0" y="66" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="12" fill="#6b7d8f">all time</text>
   <rect x="20" y="80" width="238" height="3" rx="1.5" fill="#1b2432"/>
-  <rect x="20" y="80" width="166.6" height="3" rx="1.5" fill="#2dd4bf" opacity="1"/>
+  <rect x="20" y="80" width="161.0" height="3" rx="1.5" fill="#2dd4bf" opacity="1"/>
   <rect x="296" y="0" width="278" height="100" rx="10" fill="#0e141c" stroke="#1c2733"/>
   <text x="316" y="27" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="10" fill="#5a6b7d" letter-spacing="2">TOTAL STARS</text>
   <text x="316" y="66" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="34" fill="#a78bfa" font-weight="700" filter="url(#glowa78bfa)">426</text>
