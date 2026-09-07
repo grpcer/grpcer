@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="296" height="148" viewBox="0 0 296 148" fill="none" role="img" aria-label="ownmem — Git-native memory for AI coding agents. On npm.">
+  <title>ownmem</title>
+  <rect x="0" y="0" width="278" height="148" rx="10" fill="#0e141c" stroke="#1c2733"/>
+  <g transform="translate(234, 20)" stroke="#a78bfa" stroke-opacity="0.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 016.5 3H19v15H6.5A2.5 2.5 0 004 20.5z"/><path d="M4 20.5A2.5 2.5 0 016.5 18H19v3H6.5A2.5 2.5 0 014 20.5z"/><path d="M9 8h6"/></g>
+  <text x="20" y="32" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="10" fill="#a78bfa" letter-spacing="2" fill-opacity="0.9">OPEN SOURCE</text>
+  <text x="20" y="62" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="21" fill="#e6edf3" font-weight="700">ownmem</text>
+  <text x="20" y="88" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="11.5" fill="#8b98a5">Git-native memory for AI</text>
+  <text x="20" y="105" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="11.5" fill="#8b98a5">coding agents. On npm.</text>
+  <text x="20" y="128" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="11" fill="#a78bfa" fill-opacity="0.85">★ 272 · Apache-2.0</text>
+  <path d="M244 124h10m-4-4l4 4-4 4" stroke="#a78bfa" stroke-opacity="0.55" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

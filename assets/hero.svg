@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="880" height="320" viewBox="0 0 880 320" fill="none" role="img" aria-label="grpcer — Go backend and indie full-stack builder, shipping on Go, iOS, Android and Web">
+<svg xmlns="http://www.w3.org/2000/svg" width="870" height="320" viewBox="0 0 870 320" fill="none" role="img" aria-label="grpcer — Go backend and indie full-stack builder, shipping on Go, iOS, Android and Web">
   <title>grpcer — Go backend &amp; indie full-stack builder</title>
 
   <style>
@@ -13,7 +13,7 @@
 
   <defs>
     <clipPath id="card">
-      <rect x="0.5" y="0.5" width="879" height="319" rx="12"/>
+      <rect x="0.5" y="0.5" width="869" height="319" rx="12"/>
     </clipPath>
 
     <linearGradient id="gridFade" x1="0" y1="256" x2="0" y2="320" gradientUnits="userSpaceOnUse">
@@ -21,7 +21,7 @@
       <stop offset="1" stop-color="#2dd4bf" stop-opacity="0.19"/>
     </linearGradient>
 
-    <linearGradient id="horizonGlow" x1="0" y1="0" x2="880" y2="0" gradientUnits="userSpaceOnUse">
+    <linearGradient id="horizonGlow" x1="0" y1="0" x2="870" y2="0" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#2dd4bf" stop-opacity="0"/>
       <stop offset="0.5" stop-color="#2dd4bf" stop-opacity="0.5"/>
       <stop offset="1" stop-color="#a78bfa" stop-opacity="0"/>
@@ -45,27 +45,27 @@
     </radialGradient>
 
     <mask id="wordmarkMask">
-      <rect x="0" y="0" width="880" height="320" fill="#000"/>
+      <rect x="0" y="0" width="870" height="320" fill="#000"/>
       <text class="mono" x="44" y="136" font-size="66" font-weight="800" letter-spacing="-2"
             textLength="240" lengthAdjust="spacingAndGlyphs" fill="#ffffff">grpcer</text>
     </mask>
   </defs>
 
   <g clip-path="url(#card)">
-    <rect width="880" height="320" fill="#05070d"/>
+    <rect width="870" height="320" fill="#05070d"/>
 
     <!-- perspective grid: lives entirely below the content, horizon at y=256 -->
     <g stroke="url(#gridFade)" stroke-width="1">
-      <path d="M440 256 -280 320M440 256 -110 320M440 256 20 320M440 256 130 320M440 256 225 320"/>
-      <path d="M440 256 305 320M440 256 375 320M440 256 440 320M440 256 505 320M440 256 575 320"/>
-      <path d="M440 256 655 320M440 256 750 320M440 256 860 320M440 256 990 320M440 256 1160 320"/>
-      <path d="M0 264h880M0 274h880M0 288h880M0 306h880"/>
+      <path d="M435 256 -285 320M435 256 -115 320M435 256 15 320M435 256 125 320M435 256 220 320"/>
+      <path d="M435 256 300 320M435 256 370 320M435 256 435 320M435 256 500 320M435 256 570 320"/>
+      <path d="M435 256 650 320M435 256 745 320M435 256 855 320M435 256 985 320M435 256 1155 320"/>
+      <path d="M0 264h870M0 274h870M0 288h870M0 306h870"/>
     </g>
-    <path d="M0 256h880" stroke="url(#horizonGlow)" stroke-width="1.5"/>
+    <path d="M0 256h870" stroke="url(#horizonGlow)" stroke-width="1.5"/>
 
     <!-- HUD corner brackets -->
     <g stroke="#1e3a3a" stroke-width="1">
-      <path d="M14 30V14h16M866 30V14h-16M14 290v16h16M866 290v16h-16"/>
+      <path d="M14 30V14h16M856 30V14h-16M14 290v16h16M856 290v16h-16"/>
     </g>
 
     <!-- status line -->
@@ -89,21 +89,27 @@
     <!-- tagline -->
     <text class="mono" x="44" y="182" font-size="13.5" fill="#7c8fa3">Go backend &amp; indie full-stack builder<tspan fill="#24384a">  │  </tspan>Go · iOS · Android · Web</text>
 
-    <!-- stack pills: Go leads, in the accent weight -->
+    <!-- stack pills: backend first, Go carrying the accent weight -->
     <g>
       <rect x="44" y="204" width="44" height="26" rx="13" fill="#2dd4bf" fill-opacity="0.15" stroke="#2dd4bf" stroke-opacity="0.45"/>
       <text class="mono" x="66" y="221" font-size="11" font-weight="700" text-anchor="middle" textLength="16" lengthAdjust="spacingAndGlyphs" fill="#5eead4">Go</text>
 
-      <rect x="96" y="204" width="70" height="26" rx="13" fill="#2dd4bf" fill-opacity="0.06" stroke="#2dd4bf" stroke-opacity="0.18"/>
-      <text class="mono" x="131" y="221" font-size="11" text-anchor="middle" textLength="46" lengthAdjust="spacingAndGlyphs" fill="#8fd9d1">SwiftUI</text>
+      <rect x="96" y="204" width="48" height="26" rx="13" fill="#2dd4bf" fill-opacity="0.08" stroke="#2dd4bf" stroke-opacity="0.28"/>
+      <text class="mono" x="120" y="221" font-size="11" text-anchor="middle" textLength="20" lengthAdjust="spacingAndGlyphs" fill="#a5f3ec">Gin</text>
 
-      <rect x="174" y="204" width="70" height="26" rx="13" fill="#2dd4bf" fill-opacity="0.06" stroke="#2dd4bf" stroke-opacity="0.18"/>
-      <text class="mono" x="209" y="221" font-size="11" text-anchor="middle" textLength="46" lengthAdjust="spacingAndGlyphs" fill="#8fd9d1">Compose</text>
+      <rect x="152" y="204" width="98" height="26" rx="13" fill="#2dd4bf" fill-opacity="0.08" stroke="#2dd4bf" stroke-opacity="0.28"/>
+      <text class="mono" x="201" y="221" font-size="11" text-anchor="middle" textLength="68" lengthAdjust="spacingAndGlyphs" fill="#a5f3ec">PostgreSQL</text>
 
-      <rect x="252" y="204" width="70" height="26" rx="13" fill="#a78bfa" fill-opacity="0.06" stroke="#a78bfa" stroke-opacity="0.20"/>
-      <text class="mono" x="287" y="221" font-size="11" text-anchor="middle" textLength="46" lengthAdjust="spacingAndGlyphs" fill="#b9a8f0">Next.js</text>
+      <rect x="258" y="204" width="70" height="26" rx="13" fill="#2dd4bf" fill-opacity="0.06" stroke="#2dd4bf" stroke-opacity="0.18"/>
+      <text class="mono" x="293" y="221" font-size="11" text-anchor="middle" textLength="46" lengthAdjust="spacingAndGlyphs" fill="#8fd9d1">SwiftUI</text>
+
+      <rect x="336" y="204" width="70" height="26" rx="13" fill="#2dd4bf" fill-opacity="0.06" stroke="#2dd4bf" stroke-opacity="0.18"/>
+      <text class="mono" x="371" y="221" font-size="11" text-anchor="middle" textLength="46" lengthAdjust="spacingAndGlyphs" fill="#8fd9d1">Compose</text>
+
+      <rect x="414" y="204" width="70" height="26" rx="13" fill="#a78bfa" fill-opacity="0.06" stroke="#a78bfa" stroke-opacity="0.2"/>
+      <text class="mono" x="449" y="221" font-size="11" text-anchor="middle" textLength="46" lengthAdjust="spacingAndGlyphs" fill="#b9a8f0">Next.js</text>
     </g>
   </g>
 
-  <rect x="0.5" y="0.5" width="879" height="319" rx="12" stroke="#16202e"/>
+  <rect x="0.5" y="0.5" width="869" height="319" rx="12" stroke="#16202e"/>
 </svg>

@@ -2,7 +2,8 @@
 """聚合 grpcer 名下全部仓库(含 private)的活跃度与语言字节数，渲染主页用的三张 SVG。
 
 产物：
-  assets/roles.svg     身份卡（oriveo / ownmem / 后端栈），star 数取实时值
+  assets/card-*.svg    三张项目卡（oriveo / ownmem / tokpet），star 数取实时值
+                       拆成独立文件是为了各自包一层 <a>——图内链接点不动
   assets/stats.svg     指标卡 + 语言分布
   assets/activity.svg  最近 26 周每日提交柱状图
 
@@ -42,7 +43,7 @@ LANG_COLORS = {
     "Other": "#8b949e",
 }
 
-WIDTH = 880
+WIDTH = 870          # README 容器约 878，留 8px 余量：并排的卡片超一点就换行
 SEGMENTS = 28
 ACTIVITY_DAYS = 182          # 26 周：880px 下每根柱子还有 4.6px，再长就糊成一片了
 
@@ -207,57 +208,68 @@ def text(x, y, s, size, fill, *, weight=None, anchor=None, spacing=None,
     return f'  <text {" ".join(a)}>{esc(s)}</text>\n'
 
 
-# ---- roles ---------------------------------------------------------------
+# ---- project cards ------------------------------------------------------
 
-ROLE_ICONS = {
-    # 24x24 线稿，统一 1.8 描边
-    "founder": '<path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/>',
-    "author":  '<path d="M4 5.5A2.5 2.5 0 016.5 3H19v15H6.5A2.5 2.5 0 004 20.5z"/><path d="M4 20.5A2.5 2.5 0 016.5 18H19v3H6.5A2.5 2.5 0 014 20.5z"/><path d="M9 8h6"/>',
-    "backend": '<ellipse cx="12" cy="6" rx="7.5" ry="3"/><path d="M4.5 6v6c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3V6"/><path d="M4.5 12v6c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3v-6"/>',
+# 每张卡是独立 SVG：SVG 当 <img> 加载时图内 <a> 不可点，只有把卡拆开、
+# 各自包一层 markdown 的 <a>，点击才能跳到对应仓库。
+CARD_ICONS = {
+    "cube": '<path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/>',
+    "book": '<path d="M4 5.5A2.5 2.5 0 016.5 3H19v15H6.5A2.5 2.5 0 004 20.5z"/><path d="M4 20.5A2.5 2.5 0 016.5 18H19v3H6.5A2.5 2.5 0 014 20.5z"/><path d="M9 8h6"/>',
+    "pet":  '<rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/><path d="M8.5 9.5h.01M15.5 9.5h.01"/><path d="M9 13c1.6 1.3 4.4 1.3 6 0"/>',
 }
 
+CARD_W, CARD_H, CARD_GAP = 278, 148, 18   # 278*3 + 18*2 = 870
 
-def role_card(x, kind, tag, name, lines, footer, color):
-    w, h = 282, 148
-    out = [card(x, 0, w, h)]
-    out.append(f'  <g transform="translate({x + w - 44}, 20)" stroke="{color}" stroke-opacity="0.5" '
+
+def build_card_svg(icon, tag, name, lines, footer, color, *, trailing_gap):
+    """一张项目卡。trailing_gap=True 时右侧留出卡间距，好让三张紧挨着排也不粘连。"""
+    width = CARD_W + (CARD_GAP if trailing_gap else 0)
+    out = [f'<?xml version="1.0" encoding="UTF-8"?>\n'
+           f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{CARD_H}" '
+           f'viewBox="0 0 {width} {CARD_H}" fill="none" role="img" '
+           f'aria-label="{esc(name)} — {esc(" ".join(lines))}">\n'
+           f'  <title>{esc(name)}</title>\n']
+    out.append(card(0, 0, CARD_W, CARD_H))
+    out.append(f'  <g transform="translate({CARD_W - 44}, 20)" stroke="{color}" stroke-opacity="0.5" '
                f'stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">'
-               f'<g transform="scale(1)">{ROLE_ICONS[kind]}</g></g>\n')
-    out.append(text(x + 20, 32, tag, 10, color, spacing=2, opacity="0.9"))
-    out.append(text(x + 20, 62, name, 21, "#e6edf3", weight="700"))
+               f'{CARD_ICONS[icon]}</g>\n')
+    out.append(text(20, 32, tag, 10, color, spacing=2, opacity="0.9"))
+    out.append(text(20, 62, name, 21, "#e6edf3", weight="700"))
     for i, line in enumerate(lines):
-        out.append(text(x + 20, 88 + i * 17, line, 11.5, "#8b98a5"))
-    out.append(text(x + 20, h - 20, footer, 11, color, opacity="0.85"))
-    return "".join(out)
-
-
-def build_roles_svg(ownmem_stars, tokpet_stars):
-    h = 148
-    out = [svg_open(h, "grpcer — founder of oriveo, author of ownmem, Go backend")]
-    out.append(f'  <defs><style>text {{ white-space: pre; }}</style></defs>\n')
-    out.append(role_card(0, "founder", "FOUNDER", "oriveo",
-                         ["BYOK multi-model AI client.",
-                          "15 providers + custom relay."],
-                         "iOS · Android · Web · Go", TEAL))
-    out.append(role_card(299, "author", "OPEN SOURCE", "ownmem",
-                         ["Git-native memory for AI",
-                          "coding agents. On npm."],
-                         f"★ {ownmem_stars} · Apache-2.0" if ownmem_stars is not None
-                         else "Apache-2.0", VIOLET))
-    out.append(role_card(598, "backend", "MAIN STACK", "Go",
-                         ["Gin · PostgreSQL · Redis.",
-                          "Handlers, migrations, SSE."],
-                         f"also: tokpet ★ {tokpet_stars}" if tokpet_stars is not None
-                         else "also: tokpet", TEAL))
+        out.append(text(20, 88 + i * 17, line, 11.5, "#8b98a5"))
+    out.append(text(20, CARD_H - 20, footer, 11, color, opacity="0.85"))
+    # 右下角箭头：图片本身没有 hover 态，用它暗示这张卡是可以点的
+    out.append(f'  <path d="M{CARD_W - 34} {CARD_H - 24}h10m-4-4l4 4-4 4" stroke="{color}" '
+               f'stroke-opacity="0.55" stroke-width="1.5" fill="none" '
+               f'stroke-linecap="round" stroke-linejoin="round"/>\n')
     out.append("</svg>\n")
     return "".join(out)
+
+
+def build_all_cards(ownmem_stars, tokpet_stars):
+    def stars(n, suffix):
+        return f"★ {n} · {suffix}" if n is not None else suffix
+    return {
+        "assets/card-oriveo.svg": build_card_svg(
+            "cube", "FOUNDER", "oriveo",
+            ["BYOK multi-model AI client.", "15 providers + custom relay."],
+            "iOS · Android · Web · Go", TEAL, trailing_gap=True),
+        "assets/card-ownmem.svg": build_card_svg(
+            "book", "OPEN SOURCE", "ownmem",
+            ["Git-native memory for AI", "coding agents. On npm."],
+            stars(ownmem_stars, "Apache-2.0"), VIOLET, trailing_gap=True),
+        "assets/card-tokpet.svg": build_card_svg(
+            "pet", "OPEN SOURCE", "tokpet",
+            ["Desktop pet that watches", "your AI token spend."],
+            stars(tokpet_stars, "brew install"), TEAL, trailing_gap=False),
+    }
 
 
 # ---- stats ---------------------------------------------------------------
 
 def metric_card(x, label, value, unit, bar_pct, color, glow, bar_color=None):
     """小标签 + 大数字 + 一条细进度线。value 为 None 时诚实显示"暂无"。"""
-    w = 282
+    w = 278
     shown = "—" if value is None else f"{value:,}"
     if value is None:
         unit = "no data yet"
@@ -317,15 +329,15 @@ def build_stats_svg(ranked, streak, ytd):
                            # 按月映射：9/365 画出来只有 2.5%，看着像渲染坏了
                            min(1.0, streak / 30) if streak is not None else 0.0,
                            TEAL, f"glow{TEAL[1:]}"))
-    out.append(metric_card(299, "CONTRIBUTIONS THIS YEAR", ytd, "",
+    out.append(metric_card(296, "CONTRIBUTIONS THIS YEAR", ytd, "",
                            min(1.0, ytd / 8000) if ytd is not None else 0.0,
                            "#e6edf3", None, bar_color="#42566d"))
-    out.append(metric_card(598, "PLATFORMS SHIPPED", 4, "Go · iOS · Android · Web",
+    out.append(metric_card(592, "PLATFORMS SHIPPED", 4, "Go · iOS · Android · Web",
                            1.0, VIOLET, f"glow{VIOLET[1:]}"))
 
     out.append(card(0, lang_y, WIDTH, lang_h))
     out.append(text(22, lang_y + 32, "MOST USED LANGUAGES", 10, LABEL, spacing=2))
-    out.append(text(858, lang_y + 32, "by code volume · incl. private repos · updated daily",
+    out.append(text(848, lang_y + 32, "by code volume · incl. private repos · updated daily",
                     10.5, "#3d4c5c", anchor="end"))
     left, right = ranked[:rows], ranked[rows:]
     for i in range(rows):
@@ -335,7 +347,7 @@ def build_stats_svg(ranked, streak, ytd):
                             LANG_COLORS.get(n, LANG_COLORS["Other"]), n == MAIN_STACK))
         if i < len(right):
             n, s = right[i]
-            out.append(lang_row(480, y, n, 100 * s / total,
+            out.append(lang_row(470, y, n, 100 * s / total,
                                 LANG_COLORS.get(n, LANG_COLORS["Other"]), n == MAIN_STACK))
     out.append("</svg>\n")
     return "".join(out)
@@ -422,11 +434,10 @@ def main():
     streak, ytd, days = activity_metrics(OWNER)
 
     os.makedirs("assets", exist_ok=True)
-    for path, svg in (
-        ("assets/roles.svg", build_roles_svg(repo_stars("ownmem"), repo_stars("tokpet"))),
-        ("assets/stats.svg", build_stats_svg(ranked, streak, ytd)),
-        ("assets/activity.svg", build_activity_svg(days)),
-    ):
+    products = build_all_cards(repo_stars("ownmem"), repo_stars("tokpet"))
+    products["assets/stats.svg"] = build_stats_svg(ranked, streak, ytd)
+    products["assets/activity.svg"] = build_activity_svg(days)
+    for path, svg in products.items():
         with open(path, "w", encoding="utf-8") as f:
             f.write(svg)
         print("写出:", path)

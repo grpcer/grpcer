@@ -25,7 +25,7 @@ jobs:
           git config user.name github-actions
           git config user.email github-actions@github.com
           # hero.svg 是手写的，脚本不生成它，所以不在这里 add
-          git add -A assets/roles.svg assets/stats.svg assets/activity.svg
+          git add -A assets/card-oriveo.svg assets/card-ownmem.svg assets/card-tokpet.svg assets/stats.svg assets/activity.svg
           if git commit -m "chore: 自动生成主页统计图"; then
             git push
           fi

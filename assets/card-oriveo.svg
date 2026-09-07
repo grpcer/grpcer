@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="296" height="148" viewBox="0 0 296 148" fill="none" role="img" aria-label="oriveo — BYOK multi-model AI client. 15 providers + custom relay.">
+  <title>oriveo</title>
+  <rect x="0" y="0" width="278" height="148" rx="10" fill="#0e141c" stroke="#1c2733"/>
+  <g transform="translate(234, 20)" stroke="#2dd4bf" stroke-opacity="0.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></g>
+  <text x="20" y="32" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="10" fill="#2dd4bf" letter-spacing="2" fill-opacity="0.9">FOUNDER</text>
+  <text x="20" y="62" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="21" fill="#e6edf3" font-weight="700">oriveo</text>
+  <text x="20" y="88" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="11.5" fill="#8b98a5">BYOK multi-model AI client.</text>
+  <text x="20" y="105" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="11.5" fill="#8b98a5">15 providers + custom relay.</text>
+  <text x="20" y="128" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="11" fill="#2dd4bf" fill-opacity="0.85">iOS · Android · Web · Go</text>
+  <path d="M244 124h10m-4-4l4 4-4 4" stroke="#2dd4bf" stroke-opacity="0.55" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

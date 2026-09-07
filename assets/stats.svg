@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="880" height="258" viewBox="0 0 880 258" fill="none" role="img" aria-label="grpcer — activity and most used languages">
+<svg xmlns="http://www.w3.org/2000/svg" width="870" height="258" viewBox="0 0 870 258" fill="none" role="img" aria-label="grpcer — activity and most used languages">
   <title>grpcer — activity and most used languages</title>
   <defs>
     <filter id="glow00ADD8" x="-60%" y="-160%" width="220%" height="420%"><feDropShadow dx="0" dy="0" stdDeviation="3.2" flood-color="#00ADD8" flood-opacity="0.55"/></filter>
@@ -13,27 +13,27 @@
     <filter id="glowe34c26" x="-60%" y="-160%" width="220%" height="420%"><feDropShadow dx="0" dy="0" stdDeviation="3.2" flood-color="#e34c26" flood-opacity="0.55"/></filter>
     <filter id="glowf1e05a" x="-60%" y="-160%" width="220%" height="420%"><feDropShadow dx="0" dy="0" stdDeviation="3.2" flood-color="#f1e05a" flood-opacity="0.55"/></filter>
   </defs>
-  <rect x="0" y="0" width="282" height="100" rx="10" fill="#0e141c" stroke="#1c2733"/>
+  <rect x="0" y="0" width="278" height="100" rx="10" fill="#0e141c" stroke="#1c2733"/>
   <text x="20" y="27" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="10" fill="#5a6b7d" letter-spacing="2">CURRENT STREAK</text>
   <text x="20" y="66" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="34" fill="#2dd4bf" font-weight="700" filter="url(#glow2dd4bf)">9</text>
   <text x="49.4" y="66" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="12" fill="#6b7d8f">days</text>
-  <rect x="20" y="80" width="242" height="3" rx="1.5" fill="#1b2432"/>
-  <rect x="20" y="80" width="72.6" height="3" rx="1.5" fill="#2dd4bf" opacity="1"/>
-  <rect x="299" y="0" width="282" height="100" rx="10" fill="#0e141c" stroke="#1c2733"/>
-  <text x="319" y="27" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="10" fill="#5a6b7d" letter-spacing="2">CONTRIBUTIONS THIS YEAR</text>
-  <text x="319" y="66" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="34" fill="#e6edf3" font-weight="700">6,771</text>
-  <text x="430.0" y="66" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="12" fill="#6b7d8f"></text>
-  <rect x="319" y="80" width="242" height="3" rx="1.5" fill="#1b2432"/>
-  <rect x="319" y="80" width="204.8" height="3" rx="1.5" fill="#42566d" opacity="1"/>
-  <rect x="598" y="0" width="282" height="100" rx="10" fill="#0e141c" stroke="#1c2733"/>
-  <text x="618" y="27" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="10" fill="#5a6b7d" letter-spacing="2">PLATFORMS SHIPPED</text>
-  <text x="618" y="66" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="34" fill="#a78bfa" font-weight="700" filter="url(#glowa78bfa)">4</text>
-  <text x="647.4" y="66" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="12" fill="#6b7d8f">Go · iOS · Android · Web</text>
-  <rect x="618" y="80" width="242" height="3" rx="1.5" fill="#1b2432"/>
-  <rect x="618" y="80" width="242.0" height="3" rx="1.5" fill="#a78bfa" opacity="1"/>
-  <rect x="0" y="116" width="880" height="142" rx="10" fill="#0e141c" stroke="#1c2733"/>
+  <rect x="20" y="80" width="238" height="3" rx="1.5" fill="#1b2432"/>
+  <rect x="20" y="80" width="71.4" height="3" rx="1.5" fill="#2dd4bf" opacity="1"/>
+  <rect x="296" y="0" width="278" height="100" rx="10" fill="#0e141c" stroke="#1c2733"/>
+  <text x="316" y="27" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="10" fill="#5a6b7d" letter-spacing="2">CONTRIBUTIONS THIS YEAR</text>
+  <text x="316" y="66" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="34" fill="#e6edf3" font-weight="700">6,769</text>
+  <text x="427.0" y="66" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="12" fill="#6b7d8f"></text>
+  <rect x="316" y="80" width="238" height="3" rx="1.5" fill="#1b2432"/>
+  <rect x="316" y="80" width="201.4" height="3" rx="1.5" fill="#42566d" opacity="1"/>
+  <rect x="592" y="0" width="278" height="100" rx="10" fill="#0e141c" stroke="#1c2733"/>
+  <text x="612" y="27" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="10" fill="#5a6b7d" letter-spacing="2">PLATFORMS SHIPPED</text>
+  <text x="612" y="66" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="34" fill="#a78bfa" font-weight="700" filter="url(#glowa78bfa)">4</text>
+  <text x="641.4" y="66" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="12" fill="#6b7d8f">Go · iOS · Android · Web</text>
+  <rect x="612" y="80" width="238" height="3" rx="1.5" fill="#1b2432"/>
+  <rect x="612" y="80" width="238.0" height="3" rx="1.5" fill="#a78bfa" opacity="1"/>
+  <rect x="0" y="116" width="870" height="142" rx="10" fill="#0e141c" stroke="#1c2733"/>
   <text x="22" y="148" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="10" fill="#5a6b7d" letter-spacing="2">MOST USED LANGUAGES</text>
-  <text x="858" y="148" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="10.5" fill="#3d4c5c" text-anchor="end">by code volume · incl. private repos · updated daily</text>
+  <text x="848" y="148" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="10.5" fill="#3d4c5c" text-anchor="end">by code volume · incl. private repos · updated daily</text>
   <text x="22" y="179" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="12" fill="#c9d1d9">swift</text>
   <rect x="196" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
   <rect x="204" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
@@ -56,36 +56,36 @@
   <rect x="340" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
   <g filter="url(#glowF05138)"><rect x="124" y="170" width="6" height="10" rx="1" fill="#F05138"/><rect x="132" y="170" width="6" height="10" rx="1" fill="#F05138"/><rect x="140" y="170" width="6" height="10" rx="1" fill="#F05138"/><rect x="148" y="170" width="6" height="10" rx="1" fill="#F05138"/><rect x="156" y="170" width="6" height="10" rx="1" fill="#F05138"/><rect x="164" y="170" width="6" height="10" rx="1" fill="#F05138"/><rect x="172" y="170" width="6" height="10" rx="1" fill="#F05138"/><rect x="180" y="170" width="6" height="10" rx="1" fill="#F05138"/><rect x="188" y="170" width="6" height="10" rx="1" fill="#F05138"/></g>
   <text x="400" y="179" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="11.5" fill="#5a6b7d" text-anchor="end">31.7%</text>
-  <rect x="472" y="164" width="394" height="22" rx="5" fill="#2dd4bf" fill-opacity="0.07" stroke="#2dd4bf" stroke-opacity="0.16"/>
-  <text x="480" y="179" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="12" fill="#5eead4" font-weight="700">go</text>
-  <text x="510" y="179" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="9" fill="#2dd4bf" letter-spacing="1.2" fill-opacity="0.75">MAIN</text>
-  <rect x="606" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="614" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="622" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="630" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="638" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="646" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="654" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="662" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="670" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="678" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="686" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="694" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="702" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="710" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="718" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="726" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="734" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="742" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="750" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="758" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="766" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="774" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="782" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="790" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="798" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
-  <g filter="url(#glow00ADD8)"><rect x="582" y="170" width="6" height="10" rx="1" fill="#00ADD8"/><rect x="590" y="170" width="6" height="10" rx="1" fill="#00ADD8"/><rect x="598" y="170" width="6" height="10" rx="1" fill="#00ADD8"/></g>
-  <text x="858" y="179" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="11.5" fill="#5a6b7d" text-anchor="end">9.1%</text>
+  <rect x="462" y="164" width="394" height="22" rx="5" fill="#2dd4bf" fill-opacity="0.07" stroke="#2dd4bf" stroke-opacity="0.16"/>
+  <text x="470" y="179" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="12" fill="#5eead4" font-weight="700">go</text>
+  <text x="500" y="179" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="9" fill="#2dd4bf" letter-spacing="1.2" fill-opacity="0.75">MAIN</text>
+  <rect x="596" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="604" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="612" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="620" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="628" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="636" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="644" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="652" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="660" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="668" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="676" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="684" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="692" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="700" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="708" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="716" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="724" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="732" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="740" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="748" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="756" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="764" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="772" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="780" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="788" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
+  <g filter="url(#glow00ADD8)"><rect x="572" y="170" width="6" height="10" rx="1" fill="#00ADD8"/><rect x="580" y="170" width="6" height="10" rx="1" fill="#00ADD8"/><rect x="588" y="170" width="6" height="10" rx="1" fill="#00ADD8"/></g>
+  <text x="848" y="179" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="11.5" fill="#5a6b7d" text-anchor="end">9.1%</text>
   <text x="22" y="198" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="12" fill="#c9d1d9">typescript</text>
   <rect x="164" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
   <rect x="172" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
@@ -112,35 +112,35 @@
   <rect x="340" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
   <g filter="url(#glow3178c6)"><rect x="124" y="189" width="6" height="10" rx="1" fill="#3178c6"/><rect x="132" y="189" width="6" height="10" rx="1" fill="#3178c6"/><rect x="140" y="189" width="6" height="10" rx="1" fill="#3178c6"/><rect x="148" y="189" width="6" height="10" rx="1" fill="#3178c6"/><rect x="156" y="189" width="6" height="10" rx="1" fill="#3178c6"/></g>
   <text x="400" y="198" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="11.5" fill="#5a6b7d" text-anchor="end">18.9%</text>
-  <text x="480" y="198" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="12" fill="#c9d1d9">c</text>
-  <rect x="598" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="606" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="614" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="622" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="630" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="638" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="646" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="654" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="662" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="670" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="678" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="686" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="694" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="702" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="710" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="718" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="726" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="734" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="742" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="750" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="758" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="766" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="774" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="782" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="790" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="798" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
-  <g filter="url(#glow6e7681)"><rect x="582" y="189" width="6" height="10" rx="1" fill="#6e7681"/><rect x="590" y="189" width="6" height="10" rx="1" fill="#6e7681"/></g>
-  <text x="858" y="198" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="11.5" fill="#5a6b7d" text-anchor="end">7.3%</text>
+  <text x="470" y="198" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="12" fill="#c9d1d9">c</text>
+  <rect x="588" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="596" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="604" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="612" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="620" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="628" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="636" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="644" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="652" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="660" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="668" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="676" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="684" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="692" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="700" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="708" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="716" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="724" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="732" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="740" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="748" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="756" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="764" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="772" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="780" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="788" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
+  <g filter="url(#glow6e7681)"><rect x="572" y="189" width="6" height="10" rx="1" fill="#6e7681"/><rect x="580" y="189" width="6" height="10" rx="1" fill="#6e7681"/></g>
+  <text x="848" y="198" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="11.5" fill="#5a6b7d" text-anchor="end">7.3%</text>
   <text x="22" y="217" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="12" fill="#c9d1d9">kotlin</text>
   <rect x="156" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
   <rect x="164" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
@@ -168,35 +168,35 @@
   <rect x="340" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
   <g filter="url(#glowA97BFF)"><rect x="124" y="208" width="6" height="10" rx="1" fill="#A97BFF"/><rect x="132" y="208" width="6" height="10" rx="1" fill="#A97BFF"/><rect x="140" y="208" width="6" height="10" rx="1" fill="#A97BFF"/><rect x="148" y="208" width="6" height="10" rx="1" fill="#A97BFF"/></g>
   <text x="400" y="217" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="11.5" fill="#5a6b7d" text-anchor="end">14.3%</text>
-  <text x="480" y="217" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="12" fill="#c9d1d9">html</text>
-  <rect x="598" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="606" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="614" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="622" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="630" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="638" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="646" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="654" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="662" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="670" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="678" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="686" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="694" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="702" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="710" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="718" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="726" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="734" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="742" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="750" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="758" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="766" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="774" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="782" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="790" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="798" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
-  <g filter="url(#glowe34c26)"><rect x="582" y="208" width="6" height="10" rx="1" fill="#e34c26"/><rect x="590" y="208" width="6" height="10" rx="1" fill="#e34c26"/></g>
-  <text x="858" y="217" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="11.5" fill="#5a6b7d" text-anchor="end">5.4%</text>
+  <text x="470" y="217" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="12" fill="#c9d1d9">html</text>
+  <rect x="588" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="596" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="604" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="612" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="620" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="628" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="636" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="644" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="652" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="660" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="668" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="676" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="684" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="692" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="700" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="708" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="716" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="724" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="732" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="740" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="748" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="756" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="764" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="772" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="780" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="788" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
+  <g filter="url(#glowe34c26)"><rect x="572" y="208" width="6" height="10" rx="1" fill="#e34c26"/><rect x="580" y="208" width="6" height="10" rx="1" fill="#e34c26"/></g>
+  <text x="848" y="217" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="11.5" fill="#5a6b7d" text-anchor="end">5.4%</text>
   <text x="22" y="236" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="12" fill="#c9d1d9">javascript</text>
   <rect x="148" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
   <rect x="156" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
@@ -225,34 +225,34 @@
   <rect x="340" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
   <g filter="url(#glowf1e05a)"><rect x="124" y="227" width="6" height="10" rx="1" fill="#f1e05a"/><rect x="132" y="227" width="6" height="10" rx="1" fill="#f1e05a"/><rect x="140" y="227" width="6" height="10" rx="1" fill="#f1e05a"/></g>
   <text x="400" y="236" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="11.5" fill="#5a6b7d" text-anchor="end">10.1%</text>
-  <text x="480" y="236" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="12" fill="#c9d1d9">other</text>
-  <rect x="590" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="598" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="606" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="614" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="622" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="630" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="638" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="646" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="654" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="662" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="670" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="678" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="686" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="694" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="702" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="710" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="718" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="726" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="734" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="742" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="750" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="758" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="766" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="774" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="782" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="790" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
-  <rect x="798" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
-  <g filter="url(#glow8b949e)"><rect x="582" y="227" width="6" height="10" rx="1" fill="#8b949e"/></g>
-  <text x="858" y="236" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="11.5" fill="#5a6b7d" text-anchor="end">3.3%</text>
+  <text x="470" y="236" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="12" fill="#c9d1d9">other</text>
+  <rect x="580" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="588" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="596" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="604" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="612" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="620" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="628" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="636" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="644" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="652" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="660" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="668" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="676" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="684" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="692" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="700" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="708" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="716" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="724" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="732" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="740" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="748" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="756" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="764" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="772" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="780" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
+  <rect x="788" y="227" width="6" height="10" rx="1" fill="#1b2432"/>
+  <g filter="url(#glow8b949e)"><rect x="572" y="227" width="6" height="10" rx="1" fill="#8b949e"/></g>
+  <text x="848" y="236" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="11.5" fill="#5a6b7d" text-anchor="end">3.3%</text>
 </svg>
