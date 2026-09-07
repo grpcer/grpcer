@@ -21,10 +21,10 @@
   <rect x="20" y="80" width="71.4" height="3" rx="1.5" fill="#2dd4bf" opacity="1"/>
   <rect x="296" y="0" width="278" height="100" rx="10" fill="#0e141c" stroke="#1c2733"/>
   <text x="316" y="27" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="10" fill="#5a6b7d" letter-spacing="2">CONTRIBUTIONS THIS YEAR</text>
-  <text x="316" y="66" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="34" fill="#e6edf3" font-weight="700">6,769</text>
+  <text x="316" y="66" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="34" fill="#e6edf3" font-weight="700">6,772</text>
   <text x="427.0" y="66" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="12" fill="#6b7d8f"></text>
   <rect x="316" y="80" width="238" height="3" rx="1.5" fill="#1b2432"/>
-  <rect x="316" y="80" width="201.4" height="3" rx="1.5" fill="#42566d" opacity="1"/>
+  <rect x="316" y="80" width="201.5" height="3" rx="1.5" fill="#42566d" opacity="1"/>
   <rect x="592" y="0" width="278" height="100" rx="10" fill="#0e141c" stroke="#1c2733"/>
   <text x="612" y="27" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="10" fill="#5a6b7d" letter-spacing="2">PLATFORMS SHIPPED</text>
   <text x="612" y="66" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="34" fill="#a78bfa" font-weight="700" filter="url(#glowa78bfa)">4</text>
