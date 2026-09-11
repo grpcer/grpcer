@@ -443,25 +443,61 @@ def build_stats_svg(th, ranked, streak, commits, stars):
 
 # ---- activity ------------------------------------------------------------
 
+def fmt_axis_count(n):
+    """轴标签：千以上收成 1.2k，避免左槽被 1,240 撑宽。"""
+    n = int(n)
+    if n >= 1000:
+        x = n / 1000
+        return f"{int(x)}k" if x == int(x) else f"{x:.1f}k"
+    return str(n)
+
+
+def _nice_step(step):
+    """等分步长只有落在 1/2/4/5/8 × 10^n 才用，避免 999 → 333/666。"""
+    if step < 4:
+        return False
+    s = step
+    while s % 10 == 0:
+        s //= 10
+    return s in {1, 2, 4, 5, 8, 25}
+
+
+def activity_y_ticks(peak):
+    """纵坐标刻度：含 0 与 peak，中间 1–2 档。能整除且步长好看就等分，否则对半。
+
+    柱高仍按 peak 拉满——不把轴抬到 250 这种"好看的整百"，否则最高柱会矮一截，
+    和右上角 "peak N on one day" 对不上。
+    """
+    peak = int(peak)
+    if peak <= 0:
+        return [0]
+    if peak <= 4:
+        return list(range(0, peak + 1))
+    for n in (3, 2, 4):
+        step = peak // n
+        if peak % n == 0 and _nice_step(step):
+            return list(range(0, peak, step)) + [peak]
+    mid = peak / 2
+    if peak >= 20:
+        mid = int(round(mid / 5.0) * 5)
+    else:
+        mid = int(round(mid))
+    if mid <= 0 or mid >= peak:
+        return [0, peak]
+    return [0, mid, peak]
+
+
 def build_activity_svg(th, days):
     """最近 26 周的每日提交柱状图。没有数据时画一张明说"暂无"的空卡，不画假柱子。"""
-    pad, bar_top, bar_h = 22, 54, 96
+    # bar_top 64：给峰值标签留出和标题的呼吸距离（旧值 54 会贴住 DAILY COMMITS）
+    title_x, pad_right, bar_top, bar_h = 22, 22, 64, 96
     height = bar_top + bar_h + 40
-    out = [svg_open(WIDTH, height, "grpcer — daily commits over the last 26 weeks")]
-    out.append(f'  <defs>\n'
-               f'    <linearGradient id="barGrad" x1="0" y1="{bar_top}" x2="0" '
-               f'y2="{bar_top + bar_h}" gradientUnits="userSpaceOnUse">\n'
-               f'      <stop offset="0" stop-color="{th["bar_top"]}"/>\n'
-               f'      <stop offset="0.55" stop-color="{th["bar_mid"]}"/>\n'
-               f'      <stop offset="1" stop-color="{th["bar_bottom"]}"/>\n'
-               f'    </linearGradient>\n')
-    out.append(glow_filter("barGlow", th["teal"], th["bar_glow"], deviation=2.4))
-    out.append('  </defs>\n')
-    out.append(card(th, 0, 0, WIDTH, height))
-    out.append(text(pad, 32, "DAILY COMMITS", 10, th["label"], spacing=2))
 
     if not days:
-        out.append(text(WIDTH - pad, 32, "no data yet", 10.5, th["faint"], anchor="end"))
+        out = [svg_open(WIDTH, height, "grpcer — daily commits over the last 26 weeks")]
+        out.append(card(th, 0, 0, WIDTH, height))
+        out.append(text(title_x, 32, "DAILY COMMITS", 10, th["label"], spacing=2))
+        out.append(text(WIDTH - pad_right, 32, "no data yet", 10.5, th["faint"], anchor="end"))
         out.append(text(WIDTH / 2, bar_top + bar_h / 2, "contribution data unavailable",
                         12, th["faint"], anchor="middle"))
         out.append("</svg>\n")
@@ -471,35 +507,76 @@ def build_activity_svg(th, days):
     window = [today - dt.timedelta(days=ACTIVITY_DAYS - 1 - i) for i in range(ACTIVITY_DAYS)]
     counts = [days.get(d.isoformat(), 0) for d in window]
     peak = max(counts) or 1
-    step = (WIDTH - 2 * pad) / ACTIVITY_DAYS
+    ticks = activity_y_ticks(peak)
+    # 10px 等宽大约 6px/字符；数字右对齐到柱区左侧 8px，和标题 x=22 齐平
+    longest = max(len(fmt_axis_count(v)) for v in ticks)
+    pad_left = max(50, 18 + longest * 6 + 8)
+    step = (WIDTH - pad_left - pad_right) / ACTIVITY_DAYS
     bw = round(step - 1.1, 2)
+    plot_right = WIDTH - pad_right
+    base_y = bar_top + bar_h
+    # 深色底对比弱，参考线起笔稍实一点；浅色底反过来，避免看起来像 Excel 网格
+    dark = th["bar_glow"] > 0
+    grid_head, grid_mid, grid_tail = (0.42, 0.18, 0.05) if dark else (0.26, 0.12, 0.04)
 
-    out.append(text(WIDTH - pad, 32, f"last 26 weeks \u00b7 peak {peak} on one day",
+    out = [svg_open(WIDTH, height, "grpcer — daily commits over the last 26 weeks")]
+    out.append(f'  <defs>\n'
+               f'    <linearGradient id="barGrad" x1="0" y1="{bar_top}" x2="0" '
+               f'y2="{base_y}" gradientUnits="userSpaceOnUse">\n'
+               f'      <stop offset="0" stop-color="{th["bar_top"]}"/>\n'
+               f'      <stop offset="0.55" stop-color="{th["bar_mid"]}"/>\n'
+               f'      <stop offset="1" stop-color="{th["bar_bottom"]}"/>\n'
+               f'    </linearGradient>\n'
+               f'    <linearGradient id="gridFade" x1="{pad_left}" y1="0" '
+               f'x2="{plot_right}" y2="0" gradientUnits="userSpaceOnUse">\n'
+               f'      <stop offset="0" stop-color="{th["faint"]}" stop-opacity="{grid_head}"/>\n'
+               f'      <stop offset="0.16" stop-color="{th["faint"]}" stop-opacity="{grid_mid}"/>\n'
+               f'      <stop offset="1" stop-color="{th["faint"]}" stop-opacity="{grid_tail}"/>\n'
+               f'    </linearGradient>\n')
+    out.append(glow_filter("barGlow", th["teal"], th["bar_glow"], deviation=2.4))
+    out.append("  </defs>\n")
+    out.append(card(th, 0, 0, WIDTH, height))
+    out.append(text(title_x, 32, "DAILY COMMITS", 10, th["label"], spacing=2))
+    out.append(text(plot_right, 32, f"last 26 weeks \u00b7 peak {peak} on one day",
                     10.5, th["faint"], anchor="end"))
+
+    # 参考线在柱子下面：从数字这边淡出，避免横线切开右侧的峰值发光
+    for v in ticks:
+        if v == 0:
+            continue
+        y = round(base_y - bar_h * v / peak, 2)
+        out.append(f'  <line x1="{pad_left}" y1="{y}" x2="{plot_right}" y2="{y}" '
+                   f'stroke="url(#gridFade)" stroke-width="1"/>\n')
 
     bars, zeros = [], []
     for i, c in enumerate(counts):
-        x = round(pad + i * step, 2)
+        x = round(pad_left + i * step, 2)
         if c == 0:
             # 零贡献那天画成 2px 的墩子：空白会被误读成"没数据"，这里是"那天真的是 0"
-            zeros.append(f'<rect x="{x}" y="{bar_top + bar_h - 2}" width="{bw}" height="2" '
+            zeros.append(f'<rect x="{x}" y="{base_y - 2}" width="{bw}" height="2" '
                          f'rx="1" fill="{th["track"]}"/>')
             continue
         hgt = max(3.0, round(bar_h * c / peak, 2))
-        bars.append(f'<rect x="{x}" y="{round(bar_top + bar_h - hgt, 2)}" width="{bw}" '
+        bars.append(f'<rect x="{x}" y="{round(base_y - hgt, 2)}" width="{bw}" '
                     f'height="{hgt}" rx="1.2" fill="url(#barGrad)"/>')
     out.append(f'  <g>{"".join(zeros)}</g>\n')
     out.append(f'  <g filter="url(#barGlow)">{"".join(bars)}</g>\n' if th["bar_glow"] > 0
                else f'  <g>{"".join(bars)}</g>\n')
-    out.append(f'  <rect x="{pad}" y="{bar_top + bar_h}" width="{WIDTH - 2 * pad}" height="1" '
+    out.append(f'  <rect x="{pad_left}" y="{base_y}" width="{plot_right - pad_left}" height="1" '
                f'fill="{th["card_stroke"]}"/>\n')
+
+    label_x = pad_left - 8
+    for v in ticks:
+        y = round(base_y - bar_h * v / peak, 2)
+        # 10px 字光学垂直居中到参考线（含底线的 0）
+        out.append(text(label_x, y + 3.5, fmt_axis_count(v), 10, th["label"], anchor="end"))
 
     # 月份刻度：每个月 1 号落在窗口里就标一次
     seen = set()
     for i, d in enumerate(window):
         if d.day == 1 and d.month not in seen:
             seen.add(d.month)
-            out.append(text(round(pad + i * step, 2), bar_top + bar_h + 20,
+            out.append(text(round(pad_left + i * step, 2), base_y + 20,
                             d.strftime("%b"), 10, th["faint"]))
     out.append("</svg>\n")
     return "".join(out)
