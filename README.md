@@ -22,7 +22,7 @@
 <p align="center"><a href="https://oriveoai.com"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/card-oriveo-dark.svg" /><img src="./assets/card-oriveo-light.svg" width="33.9%" alt="oriveo — BYOK multi-model AI client, 15 providers plus custom relay" /></picture></a><a href="https://github.com/grpcer/ownmem"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/card-ownmem-dark.svg" /><img src="./assets/card-ownmem-light.svg" width="33.9%" alt="ownmem — Git-native memory for AI coding agents" /></picture></a><a href="https://github.com/grpcer/tokpet"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/card-tokpet-dark.svg" /><img src="./assets/card-tokpet-light.svg" width="31.9%" alt="tokpet — desktop pet that watches your AI token spend" /></picture></a></p>
 
 <div align="center">
-  <picture><source media="(prefers-color-scheme: dark)" srcset="./assets/stats-dark.svg" /><img src="./assets/stats-light.svg" width="100%" alt="Total commits, total stars, current streak and most used languages" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="./assets/stats-dark.svg" /><img src="./assets/stats-light.svg" width="100%" alt="Total commits, total stars, commit days and most used languages" /></picture>
 </div>
 
 <div align="center">

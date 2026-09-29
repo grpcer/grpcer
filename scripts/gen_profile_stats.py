@@ -128,30 +128,26 @@ def fetch_contribution_days(login, frm, to):
     return cal["totalContributions"], days
 
 
-def activity_metrics(login):
-    """返回 (连续提交天数, 今年贡献数, {日期: 次数})；拿不到就是 (None, None, {})。"""
+def activity_metrics(login, created_year):
+    """返回 (有贡献的自然日天数, {日期: 次数})；拿不到就是 (None, {})。
+
+    按年拉取：contributionsCollection 一次最多一年。计的是 GitHub 绿格子那天
+    （commit / PR / issue / review 都算），漏一天数字只停、不清零。
+    """
     today = dt.date.today()
-    # contributionsCollection 一次最多查一年，连续天数可能跨年，所以查两段再合并
-    recent = fetch_contribution_days(login, today - dt.timedelta(days=364), today)
-    if recent is None:
-        return None, None, {}
-    days = recent[1]
-    prev = fetch_contribution_days(login, today - dt.timedelta(days=729), today - dt.timedelta(days=365))
-    if prev is not None:
-        days = {**prev[1], **days}
-
-    ytd = fetch_contribution_days(login, dt.date(today.year, 1, 1), today)
-    ytd_total = ytd[0] if ytd is not None else None
-
-    # 今天还没提交不算断档，从昨天起算
-    cursor = today
-    if days.get(cursor.isoformat(), 0) == 0:
-        cursor -= dt.timedelta(days=1)
-    streak = 0
-    while days.get(cursor.isoformat(), 0) > 0:
-        streak += 1
-        cursor -= dt.timedelta(days=1)
-    return streak, ytd_total, days
+    days, got_any = {}, False
+    for year in range(created_year, today.year + 1):
+        start = dt.date(year, 1, 1)
+        end = min(dt.date(year, 12, 31), today)
+        result = fetch_contribution_days(login, start, end)
+        if result is None:
+            continue
+        days.update(result[1])
+        got_any = True
+    if not got_any:
+        return None, {}
+    active = sum(1 for count in days.values() if count > 0)
+    return active, days
 
 
 COMMITS_QUERY = """
@@ -449,14 +445,14 @@ def lang_row(th, x, y, name, pct, is_main):
     return "".join(out)
 
 
-def build_stats_svg(th, ranked, streak, commits, stars):
+def build_stats_svg(th, ranked, active_days, commits, stars):
     total = sum(size for _, size in ranked) or 1
     lang_y = 116
     rows = -(-len(ranked) // 2)
     lang_h = 54 + rows * 19 + 12
     height = lang_y + lang_h
 
-    out = [svg_open(WIDTH, height, "grpcer — commits, stars, streak and most used languages")]
+    out = [svg_open(WIDTH, height, "grpcer — commits, stars, commit days and most used languages")]
     out.append("  <defs>\n")
     for c in sorted({lang_color(n, th) for n, _ in ranked} | {th["teal"], th["violet"]}):
         out.append(glow_filter(f"glow{c[1:]}", c, th["glow"]))
@@ -470,9 +466,8 @@ def build_stats_svg(th, ranked, streak, commits, stars):
     out.append(metric_card(th, 296, "TOTAL STARS", stars, "across all repos",
                            min(1.0, stars / 1000) if stars is not None else 0.0,
                            th["violet"], violetglow))
-    out.append(metric_card(th, 592, "CURRENT STREAK", streak, "days",
-                           # 按月映射：9/365 画出来只有 2.5%，看着像渲染坏了
-                           min(1.0, streak / 30) if streak is not None else 0.0,
+    out.append(metric_card(th, 592, "COMMIT DAYS", active_days, "all time",
+                           min(1.0, active_days / 365) if active_days is not None else 0.0,
                            th["value"], None, bar_color=th["neutral_bar"]))
 
     out.append(card(th, 0, lang_y, WIDTH, lang_h))
@@ -646,8 +641,9 @@ def main():
     personal = list_owned_repos()
     org_repos = list_org_repos()
     ranked = top_n_with_other(aggregate_languages(personal))
-    streak, ytd, days = activity_metrics(OWNER)
-    commits = total_commits(OWNER, account_created_year(OWNER))
+    created_year = account_created_year(OWNER)
+    active_days, days = activity_metrics(OWNER, created_year)
+    commits = total_commits(OWNER, created_year)
     stars = total_stars(personal + org_repos)
     om, tp = repo_stars("ownmem"), repo_stars("tokpet")
 
@@ -655,7 +651,7 @@ def main():
     written = []
     for suffix, th in (("dark", THEMES["dark"]), ("light", THEMES["light"])):
         products = build_all_cards(th, suffix, om, tp)
-        products[f"assets/stats-{suffix}.svg"] = build_stats_svg(th, ranked, streak, commits, stars)
+        products[f"assets/stats-{suffix}.svg"] = build_stats_svg(th, ranked, active_days, commits, stars)
         products[f"assets/activity-{suffix}.svg"] = build_activity_svg(th, days)
         for path, svg in products.items():
             with open(path, "w", encoding="utf-8") as f:
@@ -667,7 +663,7 @@ def main():
     print("个人仓库:", ", ".join(r["full_name"] for r in personal) or "(无)")
     print("组织仓库:", ", ".join(r["full_name"] for r in org_repos) or "(无)")
     print("累计提交:", commits, "| 总 star:", stars,
-          "| 连续天数:", streak, "| 今年贡献:", ytd, "| 日历天数:", len(days))
+          "| 提交天数:", active_days, "| 日历天数:", len(days))
     print("语言字节占比:", {n: f"{100 * s / total:.1f}%" for n, s in ranked})
 
 
