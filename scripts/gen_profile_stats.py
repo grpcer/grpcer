@@ -354,6 +354,18 @@ CARD_ICONS = {
     "pet":  '<rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/><path d="M8.5 9.5h.01M15.5 9.5h.01"/><path d="M9 13c1.6 1.3 4.4 1.3 6 0"/>',
 }
 
+# 指标卡右上角，24×24，和项目卡同一套圆角描边。闭合形给一点同色填充，
+# 否则 git 节点这种开口图形在半透明描边上会比星星/日历瘦一圈。
+METRIC_ICONS = {
+    "commit": ('<circle cx="12" cy="12" r="3.6" fill="{color}" fill-opacity="{fill_op}"/>'
+               '<path d="M3 12h5.4M16.6 12H21"/>'),
+    "star": ('<path d="M12 3.2l2.35 4.76 5.25.76-3.8 3.7.9 5.24L12 15.5'
+             'l-4.7 2.46.9-5.24-3.8-3.7 5.25-.76z" fill="{color}" fill-opacity="{fill_op}"/>'),
+    "calendar": ('<rect x="3.5" y="5.5" width="17" height="15" rx="2" '
+                 'fill="{color}" fill-opacity="{fill_op}"/>'
+                 '<path d="M8 3.5v4M16 3.5v4M3.5 11h17"/>'),
+}
+
 CARD_W, CARD_H, CARD_GAP = 278, 148, 18   # 278*3 + 18*2 = 870
 
 
@@ -399,7 +411,7 @@ def build_all_cards(th, suffix, ownmem_stars, tokpet_stars):
 
 # ---- stats ---------------------------------------------------------------
 
-def metric_card(th, x, label, value, unit, bar_pct, color, glow, bar_color=None):
+def metric_card(th, x, label, value, unit, bar_pct, color, glow, bar_color=None, icon=None):
     """小标签 + 大数字 + 一条细进度线。value 为 None 时诚实显示"暂无"。"""
     w = 278
     shown = "\u2014" if value is None else f"{value:,}"
@@ -407,6 +419,17 @@ def metric_card(th, x, label, value, unit, bar_pct, color, glow, bar_color=None)
         unit = "no data yet"
     bar_color = bar_color or color
     out = [card(th, x, 0, w, 100)]
+    if icon:
+        # 右上角、和项目卡同一套描边；色跟大数字走。深色底描边稍实一点才压得住发光数字。
+        dark = th["glow"] > 0
+        stroke_op = "0.78" if dark else "0.72"
+        fill_op = "0.20" if dark else "0.12"
+        glyph = METRIC_ICONS[icon].format(color=color, fill_op=fill_op)
+        out.append(
+            f'  <g transform="translate({x + w - 44}, 16)" stroke="{color}" stroke-opacity="{stroke_op}" '
+            f'stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round" '
+            f'aria-hidden="true">{glyph}</g>\n'
+        )
     out.append(text(x + 20, 27, label, 10, th["label"], spacing=2))
     out.append(text(x + 20, 66, shown, 34, color if value is not None else th["faint"],
                     weight="700", filt=glow if (value is not None and glow) else None))
@@ -462,13 +485,13 @@ def build_stats_svg(th, ranked, active_days, commits, stars):
     violetglow = f'glow{th["violet"][1:]}' if th["glow"] > 0 else None
     out.append(metric_card(th, 0, "TOTAL COMMITS", commits, "all time",
                            min(1.0, commits / 10000) if commits is not None else 0.0,
-                           th["teal"], tealglow))
+                           th["teal"], tealglow, icon="commit"))
     out.append(metric_card(th, 296, "TOTAL STARS", stars, "across all repos",
                            min(1.0, stars / 1000) if stars is not None else 0.0,
-                           th["violet"], violetglow))
+                           th["violet"], violetglow, icon="star"))
     out.append(metric_card(th, 592, "COMMIT DAYS", active_days, "all time",
                            min(1.0, active_days / 365) if active_days is not None else 0.0,
-                           th["value"], None, bar_color=th["neutral_bar"]))
+                           th["value"], None, bar_color=th["neutral_bar"], icon="calendar"))
 
     out.append(card(th, 0, lang_y, WIDTH, lang_h))
     out.append(text(22, lang_y + 32, "MOST USED LANGUAGES", 10, th["label"], spacing=2))
