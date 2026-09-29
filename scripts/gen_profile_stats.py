@@ -13,6 +13,9 @@ hero.svg 例外，只有深色一版：深色 banner 压在浅色页面上是成
 私有仓库的源码内容不会被写入产物，只有聚合后的计数与语言字节占比会出现在生成的 SVG 里。
 语言口径是 GitHub linguist 的**字节数**——UI 代码天然比后端代码体积大，所以卡片标题写明了口径。
 拿不到的指标一律渲染成"暂无"，不拿 0 冒充真实值。
+
+star 计入个人仓 + 所属组织仓（组织仓的 owner 是组织，type=owner 拉不到）。
+语言只扫个人仓：公开的 oriveo/oriveo 是私有主仓的子集，两边都算会把同一份代码计两次。
 """
 import datetime as dt
 import json
@@ -26,6 +29,9 @@ TOKEN = os.environ["LANG_STATS_PAT"]
 
 # profile README 仓库本身没有实质代码语言，排除
 EXCLUDE_REPOS = {OWNER}
+
+# /user/orgs 在 PAT 缺 read:org 时会静默返回空数组，已知组织钉死以免漏计 star
+KNOWN_ORGS = ("oriveo",)
 
 # 主力语言：在语言条里高亮成主色，其余按 linguist 官方色
 MAIN_STACK = "Go"
@@ -189,24 +195,68 @@ def account_created_year(login):
 
 
 def total_stars(repos):
-    return sum(r["stargazers_count"] for r in repos)
+    seen, total = set(), 0
+    for r in repos:
+        key = r["full_name"]
+        if key in seen:
+            continue
+        seen.add(key)
+        total += r["stargazers_count"]
+    return total
+
+
+def rest_paginate(path):
+    items, page = [], 1
+    joiner = "&" if "?" in path else "?"
+    while True:
+        batch = rest_get(f"{path}{joiner}per_page=100&page={page}")
+        if not batch:
+            break
+        items.extend(batch)
+        if len(batch) < 100:
+            break
+        page += 1
+    return items
 
 
 def list_owned_repos():
-    repos, page = [], 1
-    while True:
-        batch = rest_get(f"/user/repos?type=owner&per_page=100&page={page}")
-        if not batch:
-            break
-        repos.extend(batch)
-        page += 1
+    """个人账号名下的非 fork 仓（含 private）。组织仓不在这里。"""
+    repos = rest_paginate("/user/repos?type=owner")
     return [r for r in repos if not r["fork"] and r["name"] not in EXCLUDE_REPOS]
+
+
+def list_org_repos():
+    """所属组织的非 fork 仓。
+
+    GitHub 把组织仓的 owner 记在组织名下，即使用户是 org admin / 仓库创建者，
+    /user/repos?type=owner 也永远不会返回它们。
+    """
+    logins = set(KNOWN_ORGS)
+    try:
+        for org in rest_paginate("/user/orgs"):
+            logins.add(org["login"])
+    except SystemExit as e:
+        print(f"[warn] 列出所属组织失败，回退到已知组织 {sorted(KNOWN_ORGS)}: {e}")
+
+    repos, seen = [], set()
+    for login in sorted(logins):
+        try:
+            batch = rest_paginate(f"/orgs/{login}/repos?type=all")
+        except SystemExit as e:
+            print(f"[warn] 列出组织 {login} 仓库失败: {e}")
+            continue
+        for r in batch:
+            if r.get("fork") or r["full_name"] in seen:
+                continue
+            seen.add(r["full_name"])
+            repos.append(r)
+    return repos
 
 
 def aggregate_languages(repos):
     totals = {}
     for r in repos:
-        for lang, size in rest_get(f"/repos/{OWNER}/{r['name']}/languages").items():
+        for lang, size in rest_get(f"/repos/{r['full_name']}/languages").items():
             totals[lang] = totals.get(lang, 0) + size
     return totals
 
@@ -593,11 +643,12 @@ def repo_stars(name):
 
 
 def main():
-    repos = list_owned_repos()
-    ranked = top_n_with_other(aggregate_languages(repos))
+    personal = list_owned_repos()
+    org_repos = list_org_repos()
+    ranked = top_n_with_other(aggregate_languages(personal))
     streak, ytd, days = activity_metrics(OWNER)
     commits = total_commits(OWNER, account_created_year(OWNER))
-    stars = total_stars(repos)
+    stars = total_stars(personal + org_repos)
     om, tp = repo_stars("ownmem"), repo_stars("tokpet")
 
     os.makedirs("assets", exist_ok=True)
@@ -613,7 +664,8 @@ def main():
     print("写出:", len(written), "个文件")
 
     total = sum(s for _, s in ranked) or 1
-    print("聚合仓库:", ", ".join(r["name"] for r in repos))
+    print("个人仓库:", ", ".join(r["full_name"] for r in personal) or "(无)")
+    print("组织仓库:", ", ".join(r["full_name"] for r in org_repos) or "(无)")
     print("累计提交:", commits, "| 总 star:", stars,
           "| 连续天数:", streak, "| 今年贡献:", ytd, "| 日历天数:", len(days))
     print("语言字节占比:", {n: f"{100 * s / total:.1f}%" for n, s in ranked})
