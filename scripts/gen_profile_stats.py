@@ -15,6 +15,9 @@ hero.svg 例外，只有深色一版：深色 banner 压在浅色页面上是成
 拿不到的指标一律渲染成"暂无"，不拿 0 冒充真实值。
 
 star 计入个人仓 + 所属组织仓（组织仓的 owner 是组织，type=owner 拉不到）。
+组织可以按有效期拒绝 fine-grained PAT（oriveo 就拒绝超过 366 天的），
+所以 PAT 被拒时改用 PUBLIC_READ_TOKEN（workflow 内置的 GITHUB_TOKEN）只读公开仓；
+两条路都拿不到时 star 显示"暂无"，不拿少算的合计冒充总数。
 语言只扫个人仓：公开的 oriveo/oriveo 是私有主仓的子集，两边都算会把同一份代码计两次。
 """
 import datetime as dt
@@ -26,6 +29,8 @@ import urllib.request
 API = "https://api.github.com"
 OWNER = os.environ.get("OWNER", "grpcer")
 TOKEN = os.environ["LANG_STATS_PAT"]
+# 只用来读组织公开仓，不受组织 PAT 策略约束；本地没配时匿名请求
+PUBLIC_READ_TOKEN = os.environ.get("PUBLIC_READ_TOKEN", "")
 
 # profile README 仓库本身没有实质代码语言，排除
 EXCLUDE_REPOS = {OWNER}
@@ -62,15 +67,15 @@ MONO = ('font-family="JetBrains Mono, ui-monospace, SFMono-Regular, '
 
 # ---------------------------------------------------------------- GitHub API
 
-def rest_get(path):
-    req = urllib.request.Request(
-        API + path,
-        headers={
-            "Authorization": f"Bearer {TOKEN}",
-            "Accept": "application/vnd.github+json",
-            "X-GitHub-Api-Version": "2022-11-28",
-        },
-    )
+def rest_get(path, token=None):
+    token = TOKEN if token is None else token
+    headers = {
+        "Accept": "application/vnd.github+json",
+        "X-GitHub-Api-Version": "2022-11-28",
+    }
+    if token:
+        headers["Authorization"] = f"Bearer {token}"
+    req = urllib.request.Request(API + path, headers=headers)
     try:
         with urllib.request.urlopen(req) as resp:
             return json.loads(resp.read())
@@ -201,11 +206,11 @@ def total_stars(repos):
     return total
 
 
-def rest_paginate(path):
+def rest_paginate(path, token=None):
     items, page = [], 1
     joiner = "&" if "?" in path else "?"
     while True:
-        batch = rest_get(f"{path}{joiner}per_page=100&page={page}")
+        batch = rest_get(f"{path}{joiner}per_page=100&page={page}", token)
         if not batch:
             break
         items.extend(batch)
@@ -226,6 +231,7 @@ def list_org_repos():
 
     GitHub 把组织仓的 owner 记在组织名下，即使用户是 org admin / 仓库创建者，
     /user/repos?type=owner 也永远不会返回它们。
+    任一组织两条路都拿不到时返回 None：漏掉一个组织的合计是错数，不是近似值。
     """
     logins = set(KNOWN_ORGS)
     try:
@@ -239,8 +245,12 @@ def list_org_repos():
         try:
             batch = rest_paginate(f"/orgs/{login}/repos?type=all")
         except SystemExit as e:
-            print(f"[warn] 列出组织 {login} 仓库失败: {e}")
-            continue
+            print(f"[warn] PAT 列出组织 {login} 仓库失败，改读公开仓: {e}")
+            try:
+                batch = rest_paginate(f"/orgs/{login}/repos?type=public", PUBLIC_READ_TOKEN)
+            except SystemExit as e2:
+                print(f"[warn] 公开仓也读不到，TOTAL STARS 降级为暂无: {e2}")
+                return None
         for r in batch:
             if r.get("fork") or r["full_name"] in seen:
                 continue
@@ -667,7 +677,7 @@ def main():
     created_year = account_created_year(OWNER)
     active_days, days = activity_metrics(OWNER, created_year)
     commits = total_commits(OWNER, created_year)
-    stars = total_stars(personal + org_repos)
+    stars = None if org_repos is None else total_stars(personal + org_repos)
     om, tp = repo_stars("ownmem"), repo_stars("tokpet")
 
     os.makedirs("assets", exist_ok=True)
@@ -684,7 +694,8 @@ def main():
 
     total = sum(s for _, s in ranked) or 1
     print("个人仓库:", ", ".join(r["full_name"] for r in personal) or "(无)")
-    print("组织仓库:", ", ".join(r["full_name"] for r in org_repos) or "(无)")
+    print("组织仓库:", "(拉取失败)" if org_repos is None
+          else ", ".join(r["full_name"] for r in org_repos) or "(无)")
     print("累计提交:", commits, "| 总 star:", stars,
           "| 提交天数:", active_days, "| 日历天数:", len(days))
     print("语言字节占比:", {n: f"{100 * s / total:.1f}%" for n, s in ranked})

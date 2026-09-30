@@ -19,6 +19,8 @@ jobs:
       - name: aggregate activity & languages, render SVG
         env:
           LANG_STATS_PAT: ${{ secrets.LANG_STATS_PAT }}
+          # 组织按有效期拒绝 PAT 时，用内置 token 读组织公开仓的 star
+          PUBLIC_READ_TOKEN: ${{ github.token }}
         run: python3 scripts/gen_profile_stats.py
       - name: commit & push
         run: |
