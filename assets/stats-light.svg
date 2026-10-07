@@ -6,24 +6,24 @@
   <rect x="0" y="0" width="278" height="100" rx="10" fill="#f6f8fa" stroke="#d1d9e0"/>
   <g transform="translate(234, 16)" stroke="#0d9488" stroke-opacity="0.72" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.6" fill="#0d9488" fill-opacity="0.12"/><path d="M3 12h5.4M16.6 12H21"/></g>
   <text x="20" y="27" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="10" fill="#59636e" letter-spacing="2">TOTAL COMMITS</text>
-  <text x="20" y="66" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="34" fill="#0d9488" font-weight="700">10,068</text>
+  <text x="20" y="66" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="34" fill="#0d9488" font-weight="700">10,108</text>
   <text x="151.4" y="66" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="12" fill="#59636e">all time</text>
   <rect x="20" y="80" width="238" height="3" rx="1.5" fill="#e4e8ed"/>
   <rect x="20" y="80" width="238.0" height="3" rx="1.5" fill="#0d9488" opacity="1"/>
   <rect x="296" y="0" width="278" height="100" rx="10" fill="#f6f8fa" stroke="#d1d9e0"/>
   <g transform="translate(530, 16)" stroke="#7c3aed" stroke-opacity="0.72" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.2l2.35 4.76 5.25.76-3.8 3.7.9 5.24L12 15.5l-4.7 2.46.9-5.24-3.8-3.7 5.25-.76z" fill="#7c3aed" fill-opacity="0.12"/></g>
   <text x="316" y="27" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="10" fill="#59636e" letter-spacing="2">TOTAL STARS</text>
-  <text x="316" y="66" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="34" fill="#7c3aed" font-weight="700">997</text>
-  <text x="386.2" y="66" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="12" fill="#59636e">across all repos</text>
+  <text x="316" y="66" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="34" fill="#7c3aed" font-weight="700">1,017</text>
+  <text x="427.0" y="66" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="12" fill="#59636e">across all repos</text>
   <rect x="316" y="80" width="238" height="3" rx="1.5" fill="#e4e8ed"/>
-  <rect x="316" y="80" width="237.3" height="3" rx="1.5" fill="#7c3aed" opacity="1"/>
+  <rect x="316" y="80" width="238.0" height="3" rx="1.5" fill="#7c3aed" opacity="1"/>
   <rect x="592" y="0" width="278" height="100" rx="10" fill="#f6f8fa" stroke="#d1d9e0"/>
   <g transform="translate(826, 16)" stroke="#1f2328" stroke-opacity="0.72" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5.5" width="17" height="15" rx="2" fill="#1f2328" fill-opacity="0.12"/><path d="M8 3.5v4M16 3.5v4M3.5 11h17"/></g>
   <text x="612" y="27" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="10" fill="#59636e" letter-spacing="2">COMMIT DAYS</text>
-  <text x="612" y="66" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="34" fill="#1f2328" font-weight="700">205</text>
+  <text x="612" y="66" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="34" fill="#1f2328" font-weight="700">206</text>
   <text x="682.2" y="66" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="12" fill="#59636e">all time</text>
   <rect x="612" y="80" width="238" height="3" rx="1.5" fill="#e4e8ed"/>
-  <rect x="612" y="80" width="133.7" height="3" rx="1.5" fill="#9aa5b1" opacity="1"/>
+  <rect x="612" y="80" width="134.3" height="3" rx="1.5" fill="#9aa5b1" opacity="1"/>
   <rect x="0" y="116" width="870" height="142" rx="10" fill="#f6f8fa" stroke="#d1d9e0"/>
   <text x="22" y="148" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="10" fill="#59636e" letter-spacing="2">MOST USED LANGUAGES</text>
   <text x="848" y="148" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="10.5" fill="#818b98" text-anchor="end">by code volume · incl. private repos · updated daily</text>
