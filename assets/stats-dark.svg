@@ -15,7 +15,7 @@
   <rect x="0" y="0" width="278" height="100" rx="10" fill="#0e141c" stroke="#1c2733"/>
   <g transform="translate(234, 16)" stroke="#2dd4bf" stroke-opacity="0.78" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.6" fill="#2dd4bf" fill-opacity="0.20"/><path d="M3 12h5.4M16.6 12H21"/></g>
   <text x="20" y="27" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="10" fill="#5a6b7d" letter-spacing="2">TOTAL COMMITS</text>
-  <text x="20" y="66" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="34" fill="#2dd4bf" font-weight="700" filter="url(#glow2dd4bf)">26,844</text>
+  <text x="20" y="66" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="34" fill="#2dd4bf" font-weight="700" filter="url(#glow2dd4bf)">28,035</text>
   <text x="151.4" y="66" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="12" fill="#8b98a5">all time</text>
   <rect x="20" y="80" width="238" height="3" rx="1.5" fill="#1b2432"/>
   <rect x="20" y="80" width="238.0" height="3" rx="1.5" fill="#2dd4bf" opacity="1"/>
@@ -60,7 +60,7 @@
   <rect x="332" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
   <rect x="340" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
   <g filter="url(#glow3178c6)"><rect x="124" y="170" width="6" height="10" rx="1" fill="#3178c6"/><rect x="132" y="170" width="6" height="10" rx="1" fill="#3178c6"/><rect x="140" y="170" width="6" height="10" rx="1" fill="#3178c6"/><rect x="148" y="170" width="6" height="10" rx="1" fill="#3178c6"/><rect x="156" y="170" width="6" height="10" rx="1" fill="#3178c6"/><rect x="164" y="170" width="6" height="10" rx="1" fill="#3178c6"/></g>
-  <text x="400" y="179" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="11.5" fill="#5a6b7d" text-anchor="end">22.7%</text>
+  <text x="400" y="179" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="11.5" fill="#5a6b7d" text-anchor="end">22.6%</text>
   <text x="470" y="179" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="12" fill="#c9d1d9">rust</text>
   <rect x="588" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
   <rect x="596" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
@@ -89,7 +89,7 @@
   <rect x="780" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
   <rect x="788" y="170" width="6" height="10" rx="1" fill="#1b2432"/>
   <g filter="url(#glow8b949e)"><rect x="572" y="170" width="6" height="10" rx="1" fill="#8b949e"/><rect x="580" y="170" width="6" height="10" rx="1" fill="#8b949e"/></g>
-  <text x="848" y="179" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="11.5" fill="#5a6b7d" text-anchor="end">8.5%</text>
+  <text x="848" y="179" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="11.5" fill="#5a6b7d" text-anchor="end">8.7%</text>
   <text x="22" y="198" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="12" fill="#c9d1d9">swift</text>
   <rect x="164" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
   <rect x="172" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
@@ -144,7 +144,7 @@
   <rect x="780" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
   <rect x="788" y="189" width="6" height="10" rx="1" fill="#1b2432"/>
   <g filter="url(#glowe34c26)"><rect x="572" y="189" width="6" height="10" rx="1" fill="#e34c26"/><rect x="580" y="189" width="6" height="10" rx="1" fill="#e34c26"/></g>
-  <text x="848" y="198" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="11.5" fill="#5a6b7d" text-anchor="end">8.3%</text>
+  <text x="848" y="198" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="11.5" fill="#5a6b7d" text-anchor="end">8.2%</text>
   <text x="22" y="217" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace" font-size="12" fill="#c9d1d9">kotlin</text>
   <rect x="164" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
   <rect x="172" y="208" width="6" height="10" rx="1" fill="#1b2432"/>
